@@ -52,7 +52,7 @@ def run_openrouter_examples() -> None:
     )
     responses_result = openrouter_responses.create(
         model="openai/gpt-4.1-mini",
-        input=[{"role": "user", "content": "draft runbook"}],
+        input=[{"role": "user", "content": "summarize incident actions"}],
     )
     print(responses_result.trace.trace_id, responses_result.trace.decision, responses_result.response["id"])
 

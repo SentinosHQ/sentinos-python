@@ -11,22 +11,13 @@ pip install -e ".[dev]"
 tox -q
 ```
 
-If you are developing the SDK in the Sentinos monorepo and you also have the generated core client available locally,
-install it editable before running tests:
-
-```bash
-pip install -e ../sdk-core/python
-tox -q
-```
-
 ## Style
 
-- Run formatting/lint: `python -m ruff check sentinos tests`
+- Lint: `python -m ruff check sentinos tests`
 - Typecheck: `python -m mypy sentinos`
 
 ## Pull requests
 
 - Keep changes focused.
-- Add/adjust tests when behavior changes.
-- Avoid breaking public APIs without bumping major versions.
-
+- Add or update tests when behavior changes.
+- Avoid breaking public APIs without a major version bump.

@@ -1,13 +1,13 @@
 [project]
 name = "sentinos"
-version = "0.1.0"
+version = "0.1.1"
 description = "Sentinos Python SDK (control-plane client + runtime governance adapters)"
 authors = [{ name = "Sentinos" }]
 readme = { file = "README.md", content-type = "text/markdown" }
 license = { file = "LICENSE" }
 requires-python = ">=3.10"
 dependencies = [
-  "sentinos-sdk-core>=0.1.0",
+  "sentinos-sdk-core>=0.1.1",
   "pydantic>=2.10,<3",
 ]
 
@@ -95,8 +95,6 @@ exclude = [
   ".pytest_cache",
   ".ruff_cache",
   "tests/__pycache__",
-  "examples/live_e2e/artifacts",
-  "examples/live_e2e/artifacts/**",
 ]
 
 [tool.ruff]
@@ -104,11 +102,6 @@ line-length = 120
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
-
-[tool.pytest.ini_options]
-markers = [
-  "e2e: docker-compose integration tests (requires SENTINOS_E2E=1)",
-]
 
 [tool.mypy]
 python_version = "3.10"
