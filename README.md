@@ -1,5 +1,10 @@
 # `sentinos` (Python SDK)
 
+[![PyPI](https://img.shields.io/pypi/v/sentinos.svg)](https://pypi.org/project/sentinos/)
+[![Python](https://img.shields.io/pypi/pyversions/sentinos.svg)](https://pypi.org/project/sentinos/)
+[![CI](https://github.com/SentinosHQ/sentinos-python/actions/workflows/ci.yml/badge.svg)](https://github.com/SentinosHQ/sentinos-python/actions/workflows/ci.yml)
+[![License](https://img.shields.io/pypi/l/sentinos.svg)](LICENSE)
+
 <p>
   <img src="assets/sentinos-mark.png" alt="Sentinos" width="72" />
 </p>
