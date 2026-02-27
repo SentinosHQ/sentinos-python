@@ -1,0 +1,122 @@
+[project]
+name = "sentinos"
+version = "0.1.0"
+description = "Sentinos Python SDK (control-plane client + runtime governance adapters)"
+authors = [{ name = "Sentinos" }]
+readme = { file = "README.md", content-type = "text/markdown" }
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+  "sentinos-sdk-core>=0.1.0",
+  "pydantic>=2.10,<3",
+]
+
+keywords = [
+  "ai",
+  "agents",
+  "governance",
+  "policy",
+  "observability",
+  "audit",
+  "security",
+]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://sentinoshq.com"
+Documentation = "https://docs.sentinoshq.com/sdk/"
+Repository = "https://github.com/SentinosHQ/sentinos-python"
+
+[project.scripts]
+sentinos-workforce-auth = "sentinos.auth.workforce_cli:main"
+sentinos-sdk-migration-lint = "sentinos.tools.sdk_migration_lint:main"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+  "ruff>=0.6",
+  "mypy>=1.10",
+  "tox>=4.20,<5",
+  "jsonschema>=4.20,<5",
+  "PyJWT>=2.8,<3",
+]
+langchain = [
+  "langchain>=0.2",
+]
+openai = [
+  "openai>=1.40,<2",
+]
+anthropic = [
+  "anthropic>=0.34,<1",
+]
+bedrock = [
+  "boto3>=1.40,<2",
+]
+grpc = [
+  "grpcio>=1.66,<2",
+  "protobuf>=4.25,<6",
+]
+providers = [
+  "openai>=1.40,<2",
+  "anthropic>=0.34,<1",
+  "boto3>=1.40,<2",
+]
+otel = [
+  "opentelemetry-api>=1.20,<2",
+  "opentelemetry-sdk>=1.20,<2",
+]
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["sentinos"]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  ".venv*",
+  "**/.venv*",
+  "**/__pycache__",
+  ".pytest_cache",
+  ".ruff_cache",
+  "tests/__pycache__",
+  "examples/live_e2e/artifacts",
+  "examples/live_e2e/artifacts/**",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+markers = [
+  "e2e: docker-compose integration tests (requires SENTINOS_E2E=1)",
+]
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unreachable = true
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = ["opentelemetry.*", "cryptography.*"]
+ignore_missing_imports = true

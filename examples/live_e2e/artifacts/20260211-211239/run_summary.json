@@ -1,0 +1,14 @@
+{
+  "run_id": "20260211-211239",
+  "stages_completed": [
+    {
+      "artifact": "/Users/gtomberlin/Documents/Code/Sentinos/packages/sentinos-python/examples/live_e2e/artifacts/20260211-211239/stage_04_verify.json",
+      "stage": "verify"
+    }
+  ],
+  "stages_failed": [],
+  "stages_requested": [
+    "verify"
+  ],
+  "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+}

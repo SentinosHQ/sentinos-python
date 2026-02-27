@@ -1,0 +1,57 @@
+{
+  "anomaly_updates": [],
+  "escalation_updates": [
+    {
+      "escalation_id": "dd927f6a-fd41-46ee-84ef-c20e97007e3e",
+      "resolution": "APPROVED"
+    }
+  ],
+  "incident": {
+    "incident_id": "a67aa66b-7dd6-4ab1-85d1-0b28cd6f6750",
+    "severity": "CRITICAL",
+    "status": "RESOLVED",
+    "timeline_events": 4
+  },
+  "matched_alert_count": 2,
+  "run_id": "20260211-213639",
+  "stage": "stage_03_triage",
+  "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+  "triage_actions": [
+    {
+      "alert_id": "b1689fa7-47a2-4097-91be-a8b74fc851e2",
+      "final_status": "ESCALATED",
+      "initial_status": "FIRING",
+      "rule_id": "886c0350-4d28-4575-a816-03029d7cfab2",
+      "severity": "CRITICAL",
+      "steps": [
+        {
+          "action": "acknowledge",
+          "status": "ACKNOWLEDGED"
+        },
+        {
+          "action": "escalate",
+          "escalated_to": "soc-oncall@sentinos.dev",
+          "status": "ESCALATED"
+        }
+      ]
+    },
+    {
+      "alert_id": "1d566941-afd0-4649-8ccf-51bb138d989e",
+      "final_status": "ESCALATED",
+      "initial_status": "FIRING",
+      "rule_id": "ab0bc1d2-bf2c-49dc-98f0-dbe04dee9292",
+      "severity": "CRITICAL",
+      "steps": [
+        {
+          "action": "acknowledge",
+          "status": "ACKNOWLEDGED"
+        },
+        {
+          "action": "escalate",
+          "escalated_to": "soc-oncall@sentinos.dev",
+          "status": "ESCALATED"
+        }
+      ]
+    }
+  ]
+}

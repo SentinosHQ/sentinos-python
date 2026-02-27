@@ -1,0 +1,17 @@
+{
+  "run_id": "20260211-203749",
+  "stages_completed": [],
+  "stages_failed": [
+    {
+      "error": "arbiter.upsert_policy failed with HTTP 401: {\"error\":\"token signature is invalid: signing method RS256 is invalid\"} Hint: Authentication failed. Verify bearer token validity, issuer/audience config, and expiry.",
+      "stage": "setup"
+    }
+  ],
+  "stages_requested": [
+    "setup",
+    "traffic",
+    "triage",
+    "verify"
+  ],
+  "tenant_id": "617bb6ad-12f8-4fe1-a50b-324e47b29ced"
+}
