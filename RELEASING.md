@@ -1,4 +1,4 @@
-# Releasing `sentinos` (Python SDK)
+# Releasing sentinos (Python SDK)
 
 This package is published to PyPI as `sentinos`.
 
