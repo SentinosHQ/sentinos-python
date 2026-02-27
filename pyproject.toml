@@ -58,7 +58,7 @@ langchain = [
   "langchain>=0.2",
 ]
 openai = [
-  "openai>=1.40,<2",
+  "openai>=1.40,<3",
 ]
 anthropic = [
   "anthropic>=0.34,<1",
@@ -71,7 +71,7 @@ grpc = [
   "protobuf>=4.25,<6",
 ]
 providers = [
-  "openai>=1.40,<2",
+  "openai>=1.40,<3",
   "anthropic>=0.34,<1",
   "boto3>=1.40,<2",
 ]
