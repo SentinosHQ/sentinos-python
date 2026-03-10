@@ -144,11 +144,13 @@ class DecisionTrace(BaseModel):
 
         try:
             from cryptography.hazmat.primitives import hashes, serialization
-            from cryptography.hazmat.primitives.asymmetric import padding, utils
+            from cryptography.hazmat.primitives.asymmetric import padding, rsa, utils
         except Exception as e:  # pragma: no cover
             raise ImportError("cryptography is required for signature verification") from e
 
         pub = serialization.load_pem_public_key(pem_bytes)
+        if not isinstance(pub, rsa.RSAPublicKey):
+            raise ValueError("public key must be an RSA public key for RS256 verification")
         sig = base64.b64decode(self.signatures.sig)
 
         payload = self._payload_for_signature()
