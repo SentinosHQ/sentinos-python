@@ -79,4 +79,3 @@ def test_cli_refresh_posts_refresh_token(monkeypatch, capsys) -> None:
     assert seen["payload"] == {"refresh_token": "refresh-123"}
     out = capsys.readouterr().out
     assert '"access_token": "a2"' in out
-

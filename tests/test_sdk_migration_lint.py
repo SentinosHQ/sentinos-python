@@ -27,4 +27,3 @@ def test_sdk_migration_lint_flags_api_url_alias_usage(tmp_path: Path) -> None:
 
     findings = lint_paths([str(tmp_path)])
     assert any(f.rule_id == "DX008-PY002" for f in findings)
-

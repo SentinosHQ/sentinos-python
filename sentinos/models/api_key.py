@@ -27,4 +27,3 @@ class APIKeyRecord:
             expires_at=(str(d["expires_at"]) if d.get("expires_at") is not None else None),
             revoked_at=(str(d["revoked_at"]) if d.get("revoked_at") is not None else None),
         )
-

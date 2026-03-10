@@ -11,6 +11,13 @@ def test_sentinos_client_base_url_fans_out_to_all_services() -> None:
     assert client.config.arbiter_url == "https://api.sentinos.ai"
     assert client.config.chronos_url == "https://api.sentinos.ai"
     assert client.config.controlplane_url == "https://api.sentinos.ai"
+    assert client.config.meshgate_url == "https://api.sentinos.ai"
+    assert client.controlplane is not None
+    assert client.audit is not None
+    assert client.dashboards is not None
+    assert client.billing is not None
+    assert client.privacy is not None
+    assert client.a2a is not None
 
 
 def test_sentinos_client_service_url_overrides_base_url() -> None:
@@ -26,6 +33,7 @@ def test_sentinos_client_service_url_overrides_base_url() -> None:
     assert client.config.arbiter_url == "https://arbiter.sentinos.ai"
     assert client.config.chronos_url == "https://api.sentinos.ai"
     assert client.config.controlplane_url == "https://controlplane.sentinos.ai"
+    assert client.config.meshgate_url == "https://api.sentinos.ai"
 
 
 def test_sentinos_client_default_localhost_urls_when_base_not_set() -> None:
@@ -36,6 +44,7 @@ def test_sentinos_client_default_localhost_urls_when_base_not_set() -> None:
     assert client.config.arbiter_url == "http://localhost:8082"
     assert client.config.chronos_url == "http://localhost:8083"
     assert client.config.controlplane_url == "http://localhost:18084"
+    assert client.config.meshgate_url == "http://localhost:8085"
 
 
 def test_sentinos_client_local_base_url_does_not_override_controlplane_default() -> None:
@@ -45,6 +54,7 @@ def test_sentinos_client_local_base_url_does_not_override_controlplane_default()
     assert client.config.arbiter_url == "http://localhost:8081"
     assert client.config.chronos_url == "http://localhost:8081"
     assert client.config.controlplane_url == "http://localhost:18084"
+    assert client.config.meshgate_url == "http://localhost:8085"
 
 
 def test_sentinos_client_api_url_alias_fans_out() -> None:
@@ -55,6 +65,7 @@ def test_sentinos_client_api_url_alias_fans_out() -> None:
     assert client.config.arbiter_url == "https://api.sentinos.ai"
     assert client.config.chronos_url == "https://api.sentinos.ai"
     assert client.config.controlplane_url == "https://api.sentinos.ai"
+    assert client.config.meshgate_url == "https://api.sentinos.ai"
 
 
 def test_sentinos_client_url_alias_fans_out() -> None:
@@ -65,6 +76,7 @@ def test_sentinos_client_url_alias_fans_out() -> None:
     assert client.config.arbiter_url == "https://api.sentinos.ai"
     assert client.config.chronos_url == "https://api.sentinos.ai"
     assert client.config.controlplane_url == "https://api.sentinos.ai"
+    assert client.config.meshgate_url == "https://api.sentinos.ai"
 
 
 def test_sentinos_client_base_url_precedence_over_aliases() -> None:
@@ -79,6 +91,7 @@ def test_sentinos_client_base_url_precedence_over_aliases() -> None:
     assert client.config.arbiter_url == "https://base.sentinos.ai"
     assert client.config.chronos_url == "https://base.sentinos.ai"
     assert client.config.controlplane_url == "https://base.sentinos.ai"
+    assert client.config.meshgate_url == "https://base.sentinos.ai"
 
 
 def test_sentinos_client_simple_helper() -> None:
@@ -92,6 +105,7 @@ def test_sentinos_client_simple_helper() -> None:
     assert client.config.tenant_id == "org-1"
     assert client.config.kernel_url == "https://api.sentinos.ai"
     assert client.config.controlplane_url == "https://api.sentinos.ai"
+    assert client.config.meshgate_url == "https://api.sentinos.ai"
 
 
 def test_sentinos_client_org_id_alias_sets_tenant_id() -> None:
@@ -121,6 +135,7 @@ def test_sentinos_client_from_env_base_url(monkeypatch) -> None:
     assert client.config.arbiter_url == "https://api.sentinos.ai"
     assert client.config.chronos_url == "https://api.sentinos.ai"
     assert client.config.controlplane_url == "https://api.sentinos.ai"
+    assert client.config.meshgate_url == "https://api.sentinos.ai"
 
 
 def test_sentinos_client_from_env_respects_service_overrides(monkeypatch) -> None:
@@ -129,6 +144,7 @@ def test_sentinos_client_from_env_respects_service_overrides(monkeypatch) -> Non
     monkeypatch.setenv("SENTINOS_ARBITER_URL", "https://arbiter.internal/")
     monkeypatch.setenv("SENTINOS_CHRONOS_URL", "https://chronos.internal")
     monkeypatch.setenv("SENTINOS_CONTROLPLANE_URL", "https://controlplane.internal/")
+    monkeypatch.setenv("SENTINOS_MESHGATE_URL", "https://meshgate.internal/")
     monkeypatch.setenv("SENTINOS_ORG_ID", "org-via-alias")
     monkeypatch.setenv("SENTINOS_TIMEOUT_SECONDS", "45")
 
@@ -139,6 +155,7 @@ def test_sentinos_client_from_env_respects_service_overrides(monkeypatch) -> Non
     assert client.config.arbiter_url == "https://arbiter.internal"
     assert client.config.chronos_url == "https://chronos.internal"
     assert client.config.controlplane_url == "https://controlplane.internal"
+    assert client.config.meshgate_url == "https://meshgate.internal"
     assert client.config.tenant_id == "org-via-alias"
     assert client.config.timeout_seconds == 45.0
 

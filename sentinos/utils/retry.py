@@ -38,4 +38,3 @@ class RetryPolicy:
                 self._sleep(attempt)
         assert last is not None
         raise last
-

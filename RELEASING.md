@@ -1,59 +1,113 @@
-# Releasing sentinos (Python SDK)
+# Releasing `sentinos` (Python SDK)
 
 This package is published to PyPI as `sentinos`.
 
-If releasing both SDK repos, publish in this order:
+If you also publish `sentinos-sdk-core`, release order is mandatory:
 
-1. `sentinos-sdk-core`
-2. `sentinos`
+1. `sentinos-sdk-core` (core client + OpenAPI surface)
+2. `sentinos` (ergonomic wrapper)
 
-## Publishing model
+## One-Time Setup
 
-This repo uses GitHub Actions + PyPI Trusted Publishing (OIDC).
+### 1) Create a PyPI token
 
-- Workflow: `.github/workflows/publish.yml`
-- Trigger: push tag `v*` (for example `v0.1.1`)
-- No long-lived PyPI API token is required.
+1. Log into PyPI and create an API token with access to the `sentinos` project.
+2. Store it in your password manager.
 
-## Preflight
+Recommended: use scoped project tokens (not account-wide tokens).
+
+### 2) Configure credentials locally (preferred)
+
+Set `TWINE_PASSWORD` for the current shell:
+
+```bash
+export TWINE_USERNAME="__token__"
+export TWINE_PASSWORD="pypi-<token>"
+```
+
+Or create `~/.pypirc`:
+
+```ini
+[distutils]
+index-servers =
+  pypi
+  testpypi
+
+[pypi]
+username = __token__
+password = pypi-<token>
+
+[testpypi]
+repository = https://test.pypi.org/legacy/
+username = __token__
+password = pypi-<token>
+```
+
+## Preflight (Must Pass)
+
+From `packages/sentinos-python`:
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
-python -m ruff check sentinos tests
-python -m mypy sentinos
-python -m pytest -q
-rm -rf dist
-python -m pip install -U build twine
+pip install -e ".[dev]"
+tox -q
+```
+
+Optional (monorepo only): run the repo-wide quality scripts if available.
+
+## Version Bump
+
+1. Update `version` in `pyproject.toml`.
+2. Ensure README examples still match current APIs.
+
+## Build
+
+From `packages/sentinos-python`:
+
+```bash
+rm -rf dist/
+python -m pip install --upgrade build twine
 python -m build
 python -m twine check dist/*
 ```
 
-## Release
+## Publish (Recommended Flow)
 
-1. Ensure dependency floor in `pyproject.toml` is correct:
-   - `sentinos-sdk-core>=<required-version>`
-2. Bump `version` in `pyproject.toml`.
-3. Commit and push to `main`.
-4. Create and push tag:
+### 1) TestPyPI dry run
 
 ```bash
-git tag -a vX.Y.Z -m "Release vX.Y.Z"
-git push origin vX.Y.Z
+python -m twine upload --repository testpypi dist/*
 ```
 
-5. Verify GitHub workflow success.
-6. Verify package on PyPI:
+Smoke test install:
 
 ```bash
-python -m pip install -U sentinos
+python3 -m venv /tmp/sentinos-sdk-smoke
+source /tmp/sentinos-sdk-smoke/bin/activate
+pip install --upgrade pip
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple sentinos
+python -c "from sentinos import SentinosClient; print('ok')"
 ```
 
-## Optional fallback (manual upload)
-
-Use only if GitHub Actions is unavailable:
+### 2) Production PyPI publish
 
 ```bash
 python -m twine upload dist/*
 ```
+
+## If You Are Splitting From the Monorepo
+
+You can publish from a monorepo without splitting. If you want a standalone OSS repo anyway,
+use a subtree split to keep history:
+
+```bash
+git subtree split --prefix packages/sentinos-python -b codex/sentinos-python-split
+git remote add sentinos-python-oss <git-url>
+git push sentinos-python-oss codex/sentinos-python-split:main
+```
+
+If you also want `sentinos-sdk-core` standalone, repeat with:
+
+`packages/sdk-core/python`
+

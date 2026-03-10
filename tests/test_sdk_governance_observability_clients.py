@@ -436,7 +436,9 @@ def test_kernel_integrations_compliance_and_sse_async() -> None:
 
     async def run() -> None:
         listed = await c.list_notification_channels_async()
-        created = await c.create_notification_channel_async(kind="SLACK", name="ops", config={"webhook_url": "https://x"})
+        created = await c.create_notification_channel_async(
+            kind="SLACK", name="ops", config={"webhook_url": "https://x"}
+        )
         tested = await c.test_notification_channel_async("ch1", message="ping")
         valid = await c.validate_notification_channel_config_async(kind="SLACK", config={"webhook_url": "https://x"})
         health = await c.integrations_health_async()

@@ -51,4 +51,3 @@ class InstallResult(BaseModel):
     install_id: str
     simulation_job_ids: list[str] = []
     raw: dict[str, Any] = {}
-

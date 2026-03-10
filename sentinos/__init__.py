@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+from .a2a import A2AClient
 from .alerts import AlertsClient
 from .arbiter import ArbiterClient
+from .audit import AuditClient
 from .auth import (
     APIKeyAuth,
     JWTAuth,
@@ -14,8 +16,11 @@ from .auth import (
     WorkforceTokenError,
     WorkforceTokenProvider,
 )
+from .billing import BillingClient
 from .chronos import ChronosClient
 from .client import SentinosClient
+from .controlplane import ControlplaneClient
+from .dashboards import DashboardsClient
 from .incidents import IncidentsClient
 from .integrations import (
     AnthropicMessagesAdapter,
@@ -70,16 +75,22 @@ from .models.decision_trace import DecisionTrace, PolicyEvaluation
 from .models.incident import Incident, IncidentTimelineEvent
 from .models.openresponses import OpenResponsesError, OpenResponsesItem, OpenResponsesRequest, OpenResponsesResponse
 from .models.policy import PolicyItem, PolicyMetadata
+from .privacy import PrivacyClient
 from .traces import TracesClient
 
 __all__ = [
+    "A2AClient",
     "APIKeyAuth",
     "Alert",
     "AlertsClient",
     "AlertRule",
     "Anomaly",
+    "AuditClient",
     "ArbiterClient",
+    "BillingClient",
     "ChronosClient",
+    "ControlplaneClient",
+    "DashboardsClient",
     "DecisionTrace",
     "Incident",
     "IncidentsClient",
@@ -146,4 +157,5 @@ __all__ = [
     "OpenResponsesResponse",
     "OpenResponsesItem",
     "OpenResponsesError",
+    "PrivacyClient",
 ]

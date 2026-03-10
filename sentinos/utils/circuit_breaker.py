@@ -52,4 +52,3 @@ class CircuitBreaker:
         else:
             self.record_success()
             return out
-

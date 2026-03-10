@@ -51,4 +51,3 @@ class Snapshot(BaseModel):
         if isinstance(core_obj, dict):
             return cls.model_validate(core_obj)
         raise TypeError("unsupported core object for Snapshot.from_core")
-

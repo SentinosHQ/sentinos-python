@@ -16,8 +16,7 @@ def _import_optional(module_name: str, extra_name: str) -> Any:
         return importlib.import_module(module_name)
     except ModuleNotFoundError as exc:
         raise ImportError(
-            f"Optional dependency '{module_name}' is not installed. "
-            f"Install with: pip install 'sentinos[{extra_name}]'"
+            f"Optional dependency '{module_name}' is not installed. Install with: pip install 'sentinos[{extra_name}]'"
         ) from exc
 
 

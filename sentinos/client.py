@@ -8,14 +8,20 @@ from urllib.parse import urlparse
 import httpx
 from sentinos_core import AuthenticatedClient, Client
 
+from .a2a import A2AClient
 from .alerts import AlertsClient
 from .arbiter import ArbiterClient
+from .audit import AuditClient
 from .auth.api_key import APIKeyAuth
 from .auth.jwt import JWTAuth
+from .billing import BillingClient
 from .chronos import ChronosClient
+from .controlplane import ControlplaneClient
+from .dashboards import DashboardsClient
 from .incidents import IncidentsClient
 from .kernel import KernelClient
 from .marketplace import MarketplaceClient
+from .privacy import PrivacyClient
 from .traces import TracesClient
 from .utils.telemetry import TelemetryConfig, httpx_event_hooks
 
@@ -27,6 +33,7 @@ class SentinosClientConfig:
     arbiter_url: str
     chronos_url: str
     controlplane_url: str
+    meshgate_url: str
     tenant_id: str | None = None
     timeout_seconds: float = 30.0
 
@@ -48,16 +55,21 @@ class SentinosClient:
         arbiter_url: str | None = None,
         chronos_url: str | None = None,
         controlplane_url: str | None = None,
+        meshgate_url: str | None = None,
         tenant_id: str | None = None,
         org_id: str | None = None,
         auth_token: str | None = None,
         kernel_auth_token: str | None = None,
         arbiter_auth_token: str | None = None,
         chronos_auth_token: str | None = None,
+        controlplane_auth_token: str | None = None,
+        meshgate_auth_token: str | None = None,
         auth: JWTAuth | APIKeyAuth | None = None,
         kernel_auth: JWTAuth | APIKeyAuth | None = None,
         arbiter_auth: JWTAuth | APIKeyAuth | None = None,
         chronos_auth: JWTAuth | APIKeyAuth | None = None,
+        controlplane_auth: JWTAuth | APIKeyAuth | None = None,
+        meshgate_auth: JWTAuth | APIKeyAuth | None = None,
         telemetry: TelemetryConfig | None = None,
         timeout_seconds: float = 30.0,
     ) -> None:
@@ -89,14 +101,17 @@ class SentinosClient:
         # to the Kernel port when users set `base_url=http://localhost:8081`.
         if normalized_base_url is not None and _looks_like_local_runtime_host(normalized_base_url):
             default_controlplane_url = "http://localhost:18084"
+            default_meshgate_url = "http://localhost:8085"
         else:
             default_controlplane_url = normalized_base_url or "http://localhost:18084"
-        resolved_kernel_url = (kernel_url.rstrip("/") if kernel_url is not None else default_kernel_url)
-        resolved_arbiter_url = (arbiter_url.rstrip("/") if arbiter_url is not None else default_arbiter_url)
-        resolved_chronos_url = (chronos_url.rstrip("/") if chronos_url is not None else default_chronos_url)
+            default_meshgate_url = normalized_base_url or "http://localhost:8085"
+        resolved_kernel_url = kernel_url.rstrip("/") if kernel_url is not None else default_kernel_url
+        resolved_arbiter_url = arbiter_url.rstrip("/") if arbiter_url is not None else default_arbiter_url
+        resolved_chronos_url = chronos_url.rstrip("/") if chronos_url is not None else default_chronos_url
         resolved_controlplane_url = (
             controlplane_url.rstrip("/") if controlplane_url is not None else default_controlplane_url
         )
+        resolved_meshgate_url = meshgate_url.rstrip("/") if meshgate_url is not None else default_meshgate_url
 
         self.config = SentinosClientConfig(
             base_url=normalized_base_url,
@@ -104,6 +119,7 @@ class SentinosClient:
             arbiter_url=resolved_arbiter_url,
             chronos_url=resolved_chronos_url,
             controlplane_url=resolved_controlplane_url,
+            meshgate_url=resolved_meshgate_url,
             tenant_id=tenant_id,
             timeout_seconds=timeout_seconds,
         )
@@ -155,10 +171,37 @@ class SentinosClient:
             chronos_auth or auth,
             span_prefix="sentinos.chronos",
         )
+        self._controlplane_core = mk_core(
+            resolved_controlplane_url,
+            controlplane_auth_token or auth_token,
+            controlplane_auth or auth,
+            span_prefix="sentinos.controlplane",
+        )
+        self._meshgate_core = mk_core(
+            resolved_meshgate_url,
+            meshgate_auth_token or auth_token,
+            meshgate_auth or auth,
+            span_prefix="sentinos.meshgate",
+        )
 
         self.kernel = KernelClient(self._kernel_core, tenant_id=tenant_id)
         self.arbiter = ArbiterClient(self._arbiter_core, tenant_id=tenant_id)
         self.chronos = ChronosClient(self._chronos_core, tenant_id=tenant_id)
+        self.controlplane = ControlplaneClient(self._controlplane_core, tenant_id=tenant_id)
+        self.audit = AuditClient(self._controlplane_core, tenant_id=tenant_id)
+        self.dashboards = DashboardsClient(
+            self._controlplane_core,
+            {
+                "controlplane": self._controlplane_core,
+                "kernel": self._kernel_core,
+                "arbiter": self._arbiter_core,
+                "chronos": self._chronos_core,
+            },
+            tenant_id=tenant_id,
+        )
+        self.billing = BillingClient(self._kernel_core, tenant_id=tenant_id)
+        self.privacy = PrivacyClient(self._kernel_core, tenant_id=tenant_id)
+        self.a2a = A2AClient(self._meshgate_core, tenant_id=tenant_id)
         self.traces = TracesClient(self._kernel_core, tenant_id=tenant_id)
         self.marketplace = MarketplaceClient(self._arbiter_core, tenant_id=tenant_id)
         self.alerts = AlertsClient(self._kernel_core, tenant_id=tenant_id)
@@ -204,7 +247,8 @@ class SentinosClient:
 
         Supported variables:
         - SENTINOS_BASE_URL (aliases: SENTINOS_API_URL, SENTINOS_URL)
-        - SENTINOS_KERNEL_URL, SENTINOS_ARBITER_URL, SENTINOS_CHRONOS_URL, SENTINOS_CONTROLPLANE_URL
+        - SENTINOS_KERNEL_URL, SENTINOS_ARBITER_URL, SENTINOS_CHRONOS_URL
+        - SENTINOS_CONTROLPLANE_URL, SENTINOS_MESHGATE_URL
         - SENTINOS_TENANT_ID (alias: SENTINOS_ORG_ID)
         - SENTINOS_ACCESS_TOKEN
         - SENTINOS_TIMEOUT_SECONDS
@@ -241,6 +285,7 @@ class SentinosClient:
             arbiter_url=env_first("SENTINOS_ARBITER_URL"),
             chronos_url=env_first("SENTINOS_CHRONOS_URL"),
             controlplane_url=env_first("SENTINOS_CONTROLPLANE_URL"),
+            meshgate_url=env_first("SENTINOS_MESHGATE_URL"),
             tenant_id=resolved_tenant_id,
             auth_token=resolved_auth_token,
             auth=auth,

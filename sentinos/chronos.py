@@ -485,6 +485,20 @@ class ChronosClient:
             raise RuntimeError("chronos.get_ingest_status returned no parsed response")
         return out.to_dict()
 
+    def connector_health(self, *, tenant_id: str | None = None) -> dict[str, Any]:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = c.get_httpx_client().get("/v1/chronos/connectors/health")
+        resp.raise_for_status()
+        return resp.json() or {}
+
+    async def connector_health_async(self, *, tenant_id: str | None = None) -> dict[str, Any]:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = await c.get_async_httpx_client().get("/v1/chronos/connectors/health")
+        resp.raise_for_status()
+        return resp.json() or {}
+
     def ingest_event(self, *, event: dict[str, Any], tenant_id: str | None = None) -> dict[str, Any]:
         t = self._require_tenant(tenant_id)
         c = self._core_with_headers(tenant_id=t)
@@ -504,6 +518,28 @@ class ChronosClient:
         if out is None:
             raise RuntimeError("chronos.ingest_event returned no parsed response")
         return out.to_dict()
+
+    def ingest_connector_event(
+        self, *, source_id: str, event: dict[str, Any], tenant_id: str | None = None
+    ) -> dict[str, Any]:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        body = dict(event)
+        body.setdefault("tenant_id", t)
+        resp = c.get_httpx_client().post(f"/v1/chronos/connectors/{source_id}/ingest", json=body)
+        resp.raise_for_status()
+        return resp.json() or {}
+
+    async def ingest_connector_event_async(
+        self, *, source_id: str, event: dict[str, Any], tenant_id: str | None = None
+    ) -> dict[str, Any]:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        body = dict(event)
+        body.setdefault("tenant_id", t)
+        resp = await c.get_async_httpx_client().post(f"/v1/chronos/connectors/{source_id}/ingest", json=body)
+        resp.raise_for_status()
+        return resp.json() or {}
 
     def reprocess_traces(self, *, request: dict[str, Any], tenant_id: str | None = None) -> dict[str, Any]:
         t = self._require_tenant(tenant_id)
