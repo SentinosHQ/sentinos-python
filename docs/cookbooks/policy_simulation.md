@@ -3,7 +3,7 @@
 ```python
 from sentinos import SentinosClient
 
-client = SentinosClient(org_id="acme", auth_token="<jwt>", api_url="http://localhost:8082")  # alias: tenant_id
+client = SentinosClient(org_id="acme", auth_token="<jwt>", api_url="https://api.sentinos.ai")  # alias: tenant_id
 
 rego = """
 package sentinos.policy

@@ -1,11 +1,11 @@
-"""Native gRPC execute smoke test for Sentinos KernelProtocol."""
+"""Native gRPC execute example for Sentinos KernelProtocol."""
 
 from __future__ import annotations
 
 import json
 import os
 import sys
-from typing import Sequence
+from collections.abc import Sequence
 
 try:
     import grpc
@@ -14,9 +14,8 @@ try:
 except ModuleNotFoundError as exc:  # pragma: no cover - runtime dependency guard
     missing = str(exc)
     print(
-        "Missing dependency for gRPC smoke test (%s). "
-        "Install with: pip install 'sentinos[grpc]'"
-        % missing,
+        f"Missing dependency for gRPC smoke test ({missing}). "
+        "Install with: pip install 'sentinos[grpc]'",
         file=sys.stderr,
     )
     raise
@@ -64,7 +63,9 @@ def _metadata() -> Sequence[tuple[str, str]]:
 
 
 def main() -> None:
-    target = os.getenv("SENTINOS_GRPC_TARGET", "localhost:9091")
+    target = os.getenv("SENTINOS_GRPC_TARGET", "").strip()
+    if not target:
+        raise SystemExit("Set SENTINOS_GRPC_TARGET to your Sentinos Kernel gRPC endpoint before running this example.")
     tenant_id = (os.getenv("SENTINOS_ORG_ID") or os.getenv("SENTINOS_TENANT_ID") or "acme").strip()
     agent_id = os.getenv("SENTINOS_GRPC_AGENT_ID", "grpc-smoke-agent")
     session_id = os.getenv("SENTINOS_GRPC_SESSION_ID", "grpc-smoke-session")

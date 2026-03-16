@@ -163,7 +163,7 @@ pip install "sentinos[langchain]"   # langchain runtime integrations
 Native Kernel gRPC example (non-Go interoperability):
 
 ```bash
-export SENTINOS_GRPC_TARGET="localhost:9091"
+export SENTINOS_GRPC_TARGET="<kernel-grpc-endpoint>"
 export SENTINOS_ACCESS_TOKEN="<jwt-access-token>"
 export SENTINOS_ORG_ID="<org-id>"
 python examples/protocols/grpc_execute_smoke.py

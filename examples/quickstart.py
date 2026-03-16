@@ -5,8 +5,7 @@ from sentinos.auth.jwt import JWTAuth
 
 
 def build_client(token: str) -> SentinosClient:
-    # Works in local dev with SDK defaults (localhost ports), and in production when
-    # SENTINOS_BASE_URL / SENTINOS_*_URL env vars are set.
+    # Configure SENTINOS_BASE_URL / SENTINOS_*_URL in your environment before running.
     return SentinosClient.from_env(org_id="acme", auth=JWTAuth(lambda: token))
 
 
