@@ -8,14 +8,11 @@ from sentinos_core import AuthenticatedClient, Client
 from sentinos_core.api.default import trace_distributed_summaries as core_trace_distributed_summaries
 from sentinos_core.api.default import trace_get as core_trace_get
 from sentinos_core.api.default import trace_ledger_verify as core_trace_ledger_verify
-from sentinos_core.api.default import trace_replay as core_trace_replay
 from sentinos_core.api.default import trace_retention_enforce as core_trace_retention_enforce
 from sentinos_core.api.default import trace_retention_get as core_trace_retention_get
 from sentinos_core.api.default import trace_retention_update as core_trace_retention_update
 from sentinos_core.models.distributed_trace_summary import DistributedTraceSummary
 from sentinos_core.models.trace_ledger_verification import TraceLedgerVerification
-from sentinos_core.models.trace_replay_body import TraceReplayBody
-from sentinos_core.models.trace_replay_response import TraceReplayResponse
 from sentinos_core.models.trace_retention_enforce_body import TraceRetentionEnforceBody
 from sentinos_core.models.trace_retention_enforcement_result import TraceRetentionEnforcementResult
 from sentinos_core.models.trace_retention_policy import TraceRetentionPolicy
@@ -24,6 +21,12 @@ from sentinos_core.models.trace_summary import TraceSummary
 from sentinos_core.types import UNSET, Unset
 
 from .models.decision_trace import DecisionTrace
+from .models.lineage import TraceArtifactLineageResponse
+from .models.replay import (
+    TraceReplayExportResponse,
+    TraceReplayMatrixResponse,
+    TraceReplayResponse,
+)
 
 
 @dataclass
@@ -55,6 +58,30 @@ class TracesClient:
         if out is None:
             raise RuntimeError("trace.get returned no parsed response")
         return DecisionTrace.from_core(out)
+
+    def get_trace_lineage(
+        self,
+        trace_id: UUID | str,
+        *,
+        tenant_id: str | None = None,
+    ) -> TraceArtifactLineageResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = c.get_httpx_client().get(f"/v1/traces/{trace_id}/lineage")
+        resp.raise_for_status()
+        return TraceArtifactLineageResponse.model_validate(resp.json() or {})
+
+    async def get_trace_lineage_async(
+        self,
+        trace_id: UUID | str,
+        *,
+        tenant_id: str | None = None,
+    ) -> TraceArtifactLineageResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = await c.get_async_httpx_client().get(f"/v1/traces/{trace_id}/lineage")
+        resp.raise_for_status()
+        return TraceArtifactLineageResponse.model_validate(resp.json() or {})
 
     def list_traces(
         self,
@@ -141,13 +168,9 @@ class TracesClient:
     ) -> TraceReplayResponse:
         t = self._require_tenant(tenant_id)
         c = self._core_with_headers(tenant_id=t)
-        body: TraceReplayBody | Unset = UNSET
-        if request is not None:
-            body = TraceReplayBody.from_dict(dict(request))
-        out = core_trace_replay.sync(trace_id=UUID(str(trace_id)), client=c, body=body)
-        if out is None:
-            raise RuntimeError("trace.replay returned no parsed response")
-        return out
+        resp = c.get_httpx_client().post(f"/v1/trace/{trace_id}/replay", json=request or {})
+        resp.raise_for_status()
+        return TraceReplayResponse.model_validate(resp.json() or {})
 
     async def replay_trace_async(
         self,
@@ -158,13 +181,61 @@ class TracesClient:
     ) -> TraceReplayResponse:
         t = self._require_tenant(tenant_id)
         c = self._core_with_headers(tenant_id=t)
-        body: TraceReplayBody | Unset = UNSET
-        if request is not None:
-            body = TraceReplayBody.from_dict(dict(request))
-        out = await core_trace_replay.asyncio(trace_id=UUID(str(trace_id)), client=c, body=body)
-        if out is None:
-            raise RuntimeError("trace.replay returned no parsed response")
-        return out
+        resp = await c.get_async_httpx_client().post(f"/v1/trace/{trace_id}/replay", json=request or {})
+        resp.raise_for_status()
+        return TraceReplayResponse.model_validate(resp.json() or {})
+
+    def replay_trace_matrix(
+        self,
+        trace_id: UUID | str,
+        *,
+        request: dict[str, Any] | None = None,
+        tenant_id: str | None = None,
+    ) -> TraceReplayMatrixResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = c.get_httpx_client().post(f"/v1/trace/{trace_id}/replay/matrix", json=request or {})
+        resp.raise_for_status()
+        return TraceReplayMatrixResponse.model_validate(resp.json() or {})
+
+    async def replay_trace_matrix_async(
+        self,
+        trace_id: UUID | str,
+        *,
+        request: dict[str, Any] | None = None,
+        tenant_id: str | None = None,
+    ) -> TraceReplayMatrixResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = await c.get_async_httpx_client().post(f"/v1/trace/{trace_id}/replay/matrix", json=request or {})
+        resp.raise_for_status()
+        return TraceReplayMatrixResponse.model_validate(resp.json() or {})
+
+    def export_replay_evidence(
+        self,
+        trace_id: UUID | str,
+        *,
+        request: dict[str, Any] | None = None,
+        tenant_id: str | None = None,
+    ) -> TraceReplayExportResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = c.get_httpx_client().post(f"/v1/trace/{trace_id}/replay/export", json=request or {})
+        resp.raise_for_status()
+        return TraceReplayExportResponse.model_validate(resp.json() or {})
+
+    async def export_replay_evidence_async(
+        self,
+        trace_id: UUID | str,
+        *,
+        request: dict[str, Any] | None = None,
+        tenant_id: str | None = None,
+    ) -> TraceReplayExportResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = await c.get_async_httpx_client().post(f"/v1/trace/{trace_id}/replay/export", json=request or {})
+        resp.raise_for_status()
+        return TraceReplayExportResponse.model_validate(resp.json() or {})
 
     def get_retention_policy(self, *, tenant_id: str | None = None) -> TraceRetentionPolicy:
         t = self._require_tenant(tenant_id)

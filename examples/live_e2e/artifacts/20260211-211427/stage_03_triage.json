@@ -1,0 +1,20 @@
+{
+  "anomaly_updates": [],
+  "escalation_updates": [
+    {
+      "escalation_id": "e7d088f2-4891-483f-92b2-cd45cbabcd99",
+      "resolution": "APPROVED"
+    }
+  ],
+  "incident": {
+    "incident_id": "d392a9eb-14a5-4e9a-ae56-233d55de6db1",
+    "severity": "HIGH",
+    "status": "RESOLVED",
+    "timeline_events": 4
+  },
+  "matched_alert_count": 0,
+  "run_id": "20260211-211427",
+  "stage": "stage_03_triage",
+  "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+  "triage_actions": []
+}

@@ -82,7 +82,14 @@ from sentinos_core.models.session_event import SessionEvent
 from sentinos_core.types import UNSET, Unset
 
 from .models.api_key import APIKeyRecord
+from .models.cost import (
+    KernelCostAnomaliesResponse,
+    KernelCostAvoidedResponse,
+    KernelCostEventsResponse,
+    KernelCostSummaryResponse,
+)
 from .models.decision_trace import DecisionTrace
+from .models.otel import OtelExportConfig, OtelExportStatus, OtelExportTestResult
 
 
 @dataclass
@@ -715,6 +722,272 @@ class KernelClient:
         if out is None:
             raise RuntimeError("kernel.get_runtime_metrics returned no parsed response")
         return out.to_dict()
+
+    def get_cost_summary(
+        self,
+        *,
+        group_by: str = "day",
+        from_time: str | None = None,
+        to_time: str | None = None,
+        tenant_id: str | None = None,
+    ) -> KernelCostSummaryResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        params: dict[str, Any] = {"group_by": group_by}
+        if from_time:
+            params["from"] = from_time
+        if to_time:
+            params["to"] = to_time
+        resp = c.get_httpx_client().get("/v1/kernel/cost/summary", params=params)
+        resp.raise_for_status()
+        return KernelCostSummaryResponse.model_validate(resp.json() or {})
+
+    async def get_cost_summary_async(
+        self,
+        *,
+        group_by: str = "day",
+        from_time: str | None = None,
+        to_time: str | None = None,
+        tenant_id: str | None = None,
+    ) -> KernelCostSummaryResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        params: dict[str, Any] = {"group_by": group_by}
+        if from_time:
+            params["from"] = from_time
+        if to_time:
+            params["to"] = to_time
+        resp = await c.get_async_httpx_client().get("/v1/kernel/cost/summary", params=params)
+        resp.raise_for_status()
+        return KernelCostSummaryResponse.model_validate(resp.json() or {})
+
+    def list_cost_events(
+        self,
+        *,
+        trace_id: str | None = None,
+        session_id: str | None = None,
+        actor: str | None = None,
+        agent_id: str | None = None,
+        provider: str | None = None,
+        model: str | None = None,
+        tool: str | None = None,
+        kind: str | None = None,
+        from_time: str | None = None,
+        to_time: str | None = None,
+        limit: int | None = None,
+        tenant_id: str | None = None,
+    ) -> KernelCostEventsResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        params: dict[str, Any] = {}
+        if trace_id:
+            params["trace_id"] = trace_id
+        if session_id:
+            params["session_id"] = session_id
+        if actor:
+            params["actor"] = actor
+        if agent_id:
+            params["agent_id"] = agent_id
+        if provider:
+            params["provider"] = provider
+        if model:
+            params["model"] = model
+        if tool:
+            params["tool"] = tool
+        if kind:
+            params["kind"] = kind
+        if from_time:
+            params["from"] = from_time
+        if to_time:
+            params["to"] = to_time
+        if limit is not None:
+            params["limit"] = limit
+        resp = c.get_httpx_client().get("/v1/kernel/cost/events", params=params)
+        resp.raise_for_status()
+        return KernelCostEventsResponse.model_validate(resp.json() or {})
+
+    async def list_cost_events_async(
+        self,
+        *,
+        trace_id: str | None = None,
+        session_id: str | None = None,
+        actor: str | None = None,
+        agent_id: str | None = None,
+        provider: str | None = None,
+        model: str | None = None,
+        tool: str | None = None,
+        kind: str | None = None,
+        from_time: str | None = None,
+        to_time: str | None = None,
+        limit: int | None = None,
+        tenant_id: str | None = None,
+    ) -> KernelCostEventsResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        params: dict[str, Any] = {}
+        if trace_id:
+            params["trace_id"] = trace_id
+        if session_id:
+            params["session_id"] = session_id
+        if actor:
+            params["actor"] = actor
+        if agent_id:
+            params["agent_id"] = agent_id
+        if provider:
+            params["provider"] = provider
+        if model:
+            params["model"] = model
+        if tool:
+            params["tool"] = tool
+        if kind:
+            params["kind"] = kind
+        if from_time:
+            params["from"] = from_time
+        if to_time:
+            params["to"] = to_time
+        if limit is not None:
+            params["limit"] = limit
+        resp = await c.get_async_httpx_client().get("/v1/kernel/cost/events", params=params)
+        resp.raise_for_status()
+        return KernelCostEventsResponse.model_validate(resp.json() or {})
+
+    def get_cost_avoided(
+        self,
+        *,
+        from_time: str | None = None,
+        to_time: str | None = None,
+        tenant_id: str | None = None,
+    ) -> KernelCostAvoidedResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        params: dict[str, Any] = {}
+        if from_time:
+            params["from"] = from_time
+        if to_time:
+            params["to"] = to_time
+        resp = c.get_httpx_client().get("/v1/kernel/cost/avoided", params=params)
+        resp.raise_for_status()
+        return KernelCostAvoidedResponse.model_validate(resp.json() or {})
+
+    async def get_cost_avoided_async(
+        self,
+        *,
+        from_time: str | None = None,
+        to_time: str | None = None,
+        tenant_id: str | None = None,
+    ) -> KernelCostAvoidedResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        params: dict[str, Any] = {}
+        if from_time:
+            params["from"] = from_time
+        if to_time:
+            params["to"] = to_time
+        resp = await c.get_async_httpx_client().get("/v1/kernel/cost/avoided", params=params)
+        resp.raise_for_status()
+        return KernelCostAvoidedResponse.model_validate(resp.json() or {})
+
+    def list_cost_anomalies(
+        self,
+        *,
+        from_time: str | None = None,
+        to_time: str | None = None,
+        tenant_id: str | None = None,
+    ) -> KernelCostAnomaliesResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        params: dict[str, Any] = {}
+        if from_time:
+            params["from"] = from_time
+        if to_time:
+            params["to"] = to_time
+        resp = c.get_httpx_client().get("/v1/kernel/cost/anomalies", params=params)
+        resp.raise_for_status()
+        return KernelCostAnomaliesResponse.model_validate(resp.json() or {})
+
+    async def list_cost_anomalies_async(
+        self,
+        *,
+        from_time: str | None = None,
+        to_time: str | None = None,
+        tenant_id: str | None = None,
+    ) -> KernelCostAnomaliesResponse:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        params: dict[str, Any] = {}
+        if from_time:
+            params["from"] = from_time
+        if to_time:
+            params["to"] = to_time
+        resp = await c.get_async_httpx_client().get("/v1/kernel/cost/anomalies", params=params)
+        resp.raise_for_status()
+        return KernelCostAnomaliesResponse.model_validate(resp.json() or {})
+
+    def get_otel_export_config(self, *, tenant_id: str | None = None) -> OtelExportConfig:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = c.get_httpx_client().get("/v1/integrations/otel/config")
+        resp.raise_for_status()
+        return OtelExportConfig.model_validate(resp.json() or {})
+
+    async def get_otel_export_config_async(self, *, tenant_id: str | None = None) -> OtelExportConfig:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = await c.get_async_httpx_client().get("/v1/integrations/otel/config")
+        resp.raise_for_status()
+        return OtelExportConfig.model_validate(resp.json() or {})
+
+    def update_otel_export_config(
+        self,
+        *,
+        config: dict[str, Any],
+        tenant_id: str | None = None,
+    ) -> OtelExportConfig:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = c.get_httpx_client().put("/v1/integrations/otel/config", json=config)
+        resp.raise_for_status()
+        return OtelExportConfig.model_validate(resp.json() or {})
+
+    async def update_otel_export_config_async(
+        self,
+        *,
+        config: dict[str, Any],
+        tenant_id: str | None = None,
+    ) -> OtelExportConfig:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = await c.get_async_httpx_client().put("/v1/integrations/otel/config", json=config)
+        resp.raise_for_status()
+        return OtelExportConfig.model_validate(resp.json() or {})
+
+    def get_otel_export_status(self, *, tenant_id: str | None = None) -> OtelExportStatus:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = c.get_httpx_client().get("/v1/integrations/otel/status")
+        resp.raise_for_status()
+        return OtelExportStatus.model_validate(resp.json() or {})
+
+    async def get_otel_export_status_async(self, *, tenant_id: str | None = None) -> OtelExportStatus:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = await c.get_async_httpx_client().get("/v1/integrations/otel/status")
+        resp.raise_for_status()
+        return OtelExportStatus.model_validate(resp.json() or {})
+
+    def test_otel_export(self, *, tenant_id: str | None = None) -> OtelExportTestResult:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = c.get_httpx_client().post("/v1/integrations/otel/test", json={})
+        resp.raise_for_status()
+        return OtelExportTestResult.model_validate(resp.json() or {})
+
+    async def test_otel_export_async(self, *, tenant_id: str | None = None) -> OtelExportTestResult:
+        t = self._require_tenant(tenant_id)
+        c = self._core_with_headers(tenant_id=t)
+        resp = await c.get_async_httpx_client().post("/v1/integrations/otel/test", json={})
+        resp.raise_for_status()
+        return OtelExportTestResult.model_validate(resp.json() or {})
 
     def purge_wasm_cache(self, *, tenant_id: str | None = None) -> OkResponse:
         t = self._require_tenant(tenant_id)

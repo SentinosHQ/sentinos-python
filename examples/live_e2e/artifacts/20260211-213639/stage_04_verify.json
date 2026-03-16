@@ -1,0 +1,2639 @@
+{
+  "agent_id": "live-e2e-agent-20260211-213639",
+  "console_views": {
+    "alerts": "http://localhost:3000/#alerts",
+    "analytics": "http://localhost:3000/#analytics",
+    "dashboard": "http://localhost:3000/#dashboard",
+    "incidents": "http://localhost:3000/#incidents",
+    "kernel": "http://localhost:3000/#kernel",
+    "traces": "http://localhost:3000/#traces",
+    "workforce": "http://localhost:3000/#workforce"
+  },
+  "counts": {
+    "alerts": 11,
+    "anomalies": 0,
+    "channels": 12,
+    "governance_violations": 6,
+    "incidents": 14,
+    "pending_escalations_for_session": 0
+  },
+  "datadog_export": {
+    "error": "SENTINOS_E2E_DATADOG_API_KEY not set (optional)",
+    "ok": false
+  },
+  "governance_dashboard": {
+    "by_category": {
+      "uncategorized": 6
+    },
+    "by_severity": {
+      "unknown": 6
+    },
+    "deny_count": 3,
+    "escalate_count": 3,
+    "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+    "top_policies": [
+      {
+        "policy_id": "sentinos/live-e2e/openai-governance-20260211-205751",
+        "violation_count": 6
+      }
+    ],
+    "total_violations": 6,
+    "window_end": "2026-02-11T22:36:59.499446387Z",
+    "window_start": "2026-01-12T21:36:59.499446428Z"
+  },
+  "governance_report_summary_keys": [
+    "dashboard",
+    "generated_at",
+    "tenant_id",
+    "violations",
+    "window_end",
+    "window_start"
+  ],
+  "integrations_health": {
+    "ok": true,
+    "payload": {
+      "channels": [
+        {
+          "channel_id": "16ab16f7-68f1-4550-97eb-a8bd95ab839d",
+          "enabled": true,
+          "kind": "EMAIL",
+          "name": "live-e2e-email-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "c7d96af2-1c19-4956-95a7-aafe0c905dfe",
+          "enabled": true,
+          "kind": "WEBHOOK",
+          "name": "live-e2e-webhook-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "d4d92722-db45-47a2-9f3d-8d2a677b20de",
+          "enabled": true,
+          "kind": "SLACK",
+          "name": "live-e2e-slack-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "76d51730-e60c-4439-b088-7ae10ee2145a",
+          "enabled": true,
+          "kind": "EMAIL",
+          "name": "live-e2e-email-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "168426ce-7c6d-4600-88b1-acfaffd2f565",
+          "enabled": true,
+          "kind": "WEBHOOK",
+          "name": "live-e2e-webhook-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "65a784d5-dc9d-4a3d-bf0a-4a11784532e7",
+          "enabled": true,
+          "kind": "SLACK",
+          "name": "live-e2e-slack-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "5f6ac308-c61b-4253-a225-041a8779566d",
+          "enabled": true,
+          "kind": "EMAIL",
+          "name": "live-e2e-email-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "53daad75-34fc-4521-b582-7dbca67b4a38",
+          "enabled": true,
+          "kind": "WEBHOOK",
+          "name": "live-e2e-webhook-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "a0f7b6c6-e993-407d-9cf0-13534a56fdc1",
+          "enabled": true,
+          "kind": "SLACK",
+          "name": "live-e2e-slack-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "bd395a4e-c019-48bc-9605-e03ffdcac5a4",
+          "enabled": true,
+          "kind": "EMAIL",
+          "name": "live-e2e-email-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "a7ec3161-3a79-4eb5-b2a6-219ba6b84607",
+          "enabled": true,
+          "kind": "WEBHOOK",
+          "name": "live-e2e-webhook-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "448ac87f-a827-4d2d-920d-a5c5a13c5244",
+          "enabled": true,
+          "kind": "SLACK",
+          "name": "live-e2e-slack-20260211-2",
+          "status": "healthy"
+        }
+      ],
+      "summary": {
+        "disabled": 0,
+        "healthy": 12,
+        "invalid_config": 0
+      },
+      "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+    }
+  },
+  "run_id": "20260211-213639",
+  "runtime_metrics": {
+    "collected_at": "2026-02-11T21:36:59.528898+00:00",
+    "collection_scope": "kernel_container",
+    "collection_source": "process+prometheus",
+    "collection_warnings": [],
+    "cpu_percent": 0,
+    "latency_avg_ms": 49,
+    "latency_histogram": [
+      {
+        "bucket_count": 0,
+        "cumulative_count": 0,
+        "le_ms": 5
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 0,
+        "le_ms": 10
+      },
+      {
+        "bucket_count": 3,
+        "cumulative_count": 3,
+        "le_ms": 25
+      },
+      {
+        "bucket_count": 1,
+        "cumulative_count": 4,
+        "le_ms": 50
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 4,
+        "le_ms": 100
+      },
+      {
+        "bucket_count": 1,
+        "cumulative_count": 5,
+        "le_ms": 250
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 5,
+        "le_ms": 500
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 5,
+        "le_ms": 1000
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 5,
+        "le_ms": 2500
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 5,
+        "le_ms": 5000
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 5,
+        "le_ms": 10000
+      }
+    ],
+    "latency_p99_ms": 250,
+    "memory_total_mb": 17.8,
+    "memory_used_mb": 6.1,
+    "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+    "wasm_cache": {
+      "bundle_cache_entries": 4,
+      "loaded_policies": 4
+    }
+  },
+  "session_details": {
+    "ok": true,
+    "payload": "KernelGetSessionResponse200(tenant_id='ac6b93ed-8715-42c1-9292-e21a18718e29', session_id='live-e2e-session-20260211-213639', state=KernelGetSessionResponse200State(additional_properties={'_now_unix_ms': 1770845809759, 'escalations': {'dd927f6a-fd41-46ee-84ef-c20e97007e3e': {'status': 'APPROVED', 'ts': '2026-02-11T21:36:59.32670097Z', 'ts_ms': 1770845819326}}, 'last_event_type': 'llm.response'}))"
+  },
+  "session_id": "live-e2e-session-20260211-213639",
+  "siem_export": {
+    "ok": true,
+    "payload": {
+      "alerts_exported": 11,
+      "content_type": "application/json",
+      "delivered": false,
+      "delivery_status": "not_requested",
+      "format": "JSON",
+      "generated_at": "2026-02-11T21:36:59.58445672Z",
+      "incidents_exported": 14,
+      "payload": {
+        "alerts": [
+          {
+            "acknowledged_at": "2026-02-11T21:36:59.210539Z",
+            "acknowledged_by": "kernel.api",
+            "alert_id": "1d566941-afd0-4649-8ccf-51bb138d989e",
+            "correlation_key": "ab0bc1d2-bf2c-49dc-98f0-dbe04dee9292:exfiltrate",
+            "created_at": "2026-02-11T21:36:56.448916Z",
+            "dedupe_bucket": "2026-02-11T21:00:00Z",
+            "description": "Pattern rule for exfiltration-style prompts",
+            "escalated_at": "2026-02-11T21:36:59.223762Z",
+            "escalated_to": "soc-oncall@sentinos.dev",
+            "evidence": {
+              "matches": 2,
+              "pattern": "exfiltrate",
+              "threshold_value": 1,
+              "window_end": "2026-02-11T21:36:56.44808026Z",
+              "window_start": "2026-02-11T21:31:56.44808026Z"
+            },
+            "first_fired_at": "2026-02-11T21:36:56.448916Z",
+            "incident_id": "87f6d185-3634-47cd-a282-56a4093c61a2",
+            "labels": {
+              "metric_key": "",
+              "rule_type": "PATTERN"
+            },
+            "last_fired_at": "2026-02-11T21:36:56.448916Z",
+            "metric_value": 2,
+            "rule_id": "ab0bc1d2-bf2c-49dc-98f0-dbe04dee9292",
+            "severity": "CRITICAL",
+            "status": "ESCALATED",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "threshold_value": 1,
+            "title": "pattern rule triggered: Live E2E Exfiltration Pattern 20260211-2",
+            "updated_at": "2026-02-11T21:36:59.223762Z"
+          },
+          {
+            "acknowledged_at": "2026-02-11T21:36:59.178075Z",
+            "acknowledged_by": "kernel.api",
+            "alert_id": "b1689fa7-47a2-4097-91be-a8b74fc851e2",
+            "correlation_key": "886c0350-4d28-4575-a816-03029d7cfab2:decision.escalate_count",
+            "created_at": "2026-02-11T21:36:58.111504Z",
+            "dedupe_bucket": "2026-02-11T21:00:00Z",
+            "description": "Triggers on escalate decisions generated by live E2E OpenAI traffic",
+            "escalated_at": "2026-02-11T21:36:59.195786Z",
+            "escalated_to": "soc-oncall@sentinos.dev",
+            "evidence": {
+              "comparator": ">=",
+              "metric_key": "decision.escalate_count",
+              "metric_value": 2,
+              "stats": {
+                "allow_count": 2,
+                "deny_count": 2,
+                "deny_rate": 25,
+                "escalate_count": 2,
+                "escalate_rate": 25,
+                "shadow_count": 2,
+                "total_count": 8
+              },
+              "threshold_value": 1,
+              "window_end": "2026-02-11T21:36:58.110819636Z",
+              "window_start": "2026-02-11T21:31:58.110819636Z"
+            },
+            "first_fired_at": "2026-02-11T21:36:58.111504Z",
+            "incident_id": "1f9b26d8-1004-4d51-a147-c04dbbb5fa30",
+            "labels": {
+              "metric_key": "decision.escalate_count",
+              "rule_type": "THRESHOLD"
+            },
+            "last_fired_at": "2026-02-11T21:36:58.111504Z",
+            "metric_value": 2,
+            "rule_id": "886c0350-4d28-4575-a816-03029d7cfab2",
+            "severity": "CRITICAL",
+            "status": "ESCALATED",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "threshold_value": 1,
+            "title": "threshold rule triggered: Live E2E Escalate Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:36:59.195786Z"
+          },
+          {
+            "alert_id": "845ef1c6-27b9-4bdd-96f4-defd3940a970",
+            "correlation_key": "0232d523-c469-4ea8-a6fc-9086f04d0338:decision.deny_count",
+            "created_at": "2026-02-11T21:33:12.815593Z",
+            "dedupe_bucket": "2026-02-11T21:00:00Z",
+            "description": "Triggers on deny decisions generated by live E2E OpenAI traffic",
+            "evidence": {
+              "comparator": ">=",
+              "metric_key": "decision.deny_count",
+              "metric_value": 1,
+              "stats": {
+                "allow_count": 0,
+                "deny_count": 1,
+                "deny_rate": 33.33333333333333,
+                "escalate_count": 1,
+                "escalate_rate": 33.33333333333333,
+                "shadow_count": 1,
+                "total_count": 3
+              },
+              "threshold_value": 1,
+              "window_end": "2026-02-11T21:36:39.105781252Z",
+              "window_start": "2026-02-11T21:31:39.105781252Z"
+            },
+            "first_fired_at": "2026-02-11T21:33:12.815593Z",
+            "incident_id": "1555e275-7a35-461c-a263-8eba0d69a182",
+            "labels": {
+              "metric_key": "decision.deny_count",
+              "rule_type": "THRESHOLD"
+            },
+            "last_fired_at": "2026-02-11T21:36:39.108767Z",
+            "metric_value": 1,
+            "rule_id": "0232d523-c469-4ea8-a6fc-9086f04d0338",
+            "severity": "HIGH",
+            "status": "FIRING",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "threshold_value": 1,
+            "title": "threshold rule triggered: Live E2E Deny Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:36:39.115259Z"
+          },
+          {
+            "alert_id": "905f4876-7bb6-4dbd-87df-8a02ab544088",
+            "correlation_key": "c5803b4d-9076-421c-86dd-3ba358f4f1ad:decision.escalate_count",
+            "created_at": "2026-02-11T21:33:11.249319Z",
+            "dedupe_bucket": "2026-02-11T21:00:00Z",
+            "description": "Triggers on escalate decisions generated by live E2E OpenAI traffic",
+            "evidence": {
+              "comparator": ">=",
+              "metric_key": "decision.escalate_count",
+              "metric_value": 1,
+              "stats": {
+                "allow_count": 0,
+                "deny_count": 1,
+                "deny_rate": 33.33333333333333,
+                "escalate_count": 1,
+                "escalate_rate": 33.33333333333333,
+                "shadow_count": 1,
+                "total_count": 3
+              },
+              "threshold_value": 1,
+              "window_end": "2026-02-11T21:36:37.439916334Z",
+              "window_start": "2026-02-11T21:31:37.439916334Z"
+            },
+            "first_fired_at": "2026-02-11T21:33:11.249319Z",
+            "incident_id": "6181eb86-445c-4b3d-b48c-456eae77abe4",
+            "labels": {
+              "metric_key": "decision.escalate_count",
+              "rule_type": "THRESHOLD"
+            },
+            "last_fired_at": "2026-02-11T21:36:37.440912Z",
+            "metric_value": 1,
+            "rule_id": "c5803b4d-9076-421c-86dd-3ba358f4f1ad",
+            "severity": "CRITICAL",
+            "status": "FIRING",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "threshold_value": 1,
+            "title": "threshold rule triggered: Live E2E Escalate Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:36:37.4456Z"
+          },
+          {
+            "alert_id": "85fe287a-f3c7-4133-b8e7-f4b4778aefcd",
+            "correlation_key": "bace2f7c-01b0-4313-8b52-5f87685d7a43:exfiltrate",
+            "created_at": "2026-02-11T21:33:09.699728Z",
+            "dedupe_bucket": "2026-02-11T21:00:00Z",
+            "description": "Pattern rule for exfiltration-style prompts",
+            "evidence": {
+              "matches": 1,
+              "pattern": "exfiltrate",
+              "threshold_value": 1,
+              "window_end": "2026-02-11T21:36:35.904282167Z",
+              "window_start": "2026-02-11T21:31:35.904282167Z"
+            },
+            "first_fired_at": "2026-02-11T21:33:09.699728Z",
+            "incident_id": "a3b9a2d6-71d1-49bf-be4a-40efc716da52",
+            "labels": {
+              "metric_key": "",
+              "rule_type": "PATTERN"
+            },
+            "last_fired_at": "2026-02-11T21:36:35.904749Z",
+            "metric_value": 1,
+            "rule_id": "bace2f7c-01b0-4313-8b52-5f87685d7a43",
+            "severity": "CRITICAL",
+            "status": "FIRING",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "threshold_value": 1,
+            "title": "pattern rule triggered: Live E2E Exfiltration Pattern 20260211-2",
+            "updated_at": "2026-02-11T21:36:35.908707Z"
+          },
+          {
+            "alert_id": "dfc81415-2fa8-459a-bba1-bc77b43d6980",
+            "correlation_key": "cc849ae6-04be-428a-b52e-dd804ff3dec6:decision.deny_count",
+            "created_at": "2026-02-11T21:33:08.156172Z",
+            "dedupe_bucket": "2026-02-11T21:00:00Z",
+            "description": "Triggers on deny decisions generated by live E2E OpenAI traffic",
+            "evidence": {
+              "comparator": ">=",
+              "metric_key": "decision.deny_count",
+              "metric_value": 1,
+              "stats": {
+                "allow_count": 0,
+                "deny_count": 1,
+                "deny_rate": 33.33333333333333,
+                "escalate_count": 1,
+                "escalate_rate": 33.33333333333333,
+                "shadow_count": 1,
+                "total_count": 3
+              },
+              "threshold_value": 1,
+              "window_end": "2026-02-11T21:36:34.391958583Z",
+              "window_start": "2026-02-11T21:31:34.391958583Z"
+            },
+            "first_fired_at": "2026-02-11T21:33:08.156172Z",
+            "incident_id": "6308c93f-a379-4a75-8b31-2d3c9be45264",
+            "labels": {
+              "metric_key": "decision.deny_count",
+              "rule_type": "THRESHOLD"
+            },
+            "last_fired_at": "2026-02-11T21:36:34.392773Z",
+            "metric_value": 1,
+            "rule_id": "cc849ae6-04be-428a-b52e-dd804ff3dec6",
+            "severity": "HIGH",
+            "status": "FIRING",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "threshold_value": 1,
+            "title": "threshold rule triggered: Live E2E Deny Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:36:34.395907Z"
+          },
+          {
+            "alert_id": "270126b2-0f94-4b9d-a054-4ebec202da03",
+            "correlation_key": "6a8db65b-3b3d-470a-a2c6-ad8f5767ec84:decision.escalate_count",
+            "created_at": "2026-02-11T21:33:06.574779Z",
+            "dedupe_bucket": "2026-02-11T21:00:00Z",
+            "description": "Triggers on escalate decisions generated by live E2E OpenAI traffic",
+            "evidence": {
+              "comparator": ">=",
+              "metric_key": "decision.escalate_count",
+              "metric_value": 1,
+              "stats": {
+                "allow_count": 0,
+                "deny_count": 1,
+                "deny_rate": 33.33333333333333,
+                "escalate_count": 1,
+                "escalate_rate": 33.33333333333333,
+                "shadow_count": 1,
+                "total_count": 3
+              },
+              "threshold_value": 1,
+              "window_end": "2026-02-11T21:36:32.877211138Z",
+              "window_start": "2026-02-11T21:31:32.877211138Z"
+            },
+            "first_fired_at": "2026-02-11T21:33:06.574779Z",
+            "incident_id": "6afd7318-8d5a-4e04-b472-cfc6fd4b316c",
+            "labels": {
+              "metric_key": "decision.escalate_count",
+              "rule_type": "THRESHOLD"
+            },
+            "last_fired_at": "2026-02-11T21:36:32.878614Z",
+            "metric_value": 1,
+            "rule_id": "6a8db65b-3b3d-470a-a2c6-ad8f5767ec84",
+            "severity": "CRITICAL",
+            "status": "FIRING",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "threshold_value": 1,
+            "title": "threshold rule triggered: Live E2E Escalate Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:36:32.883227Z"
+          },
+          {
+            "alert_id": "2b3c0a7c-a595-4835-9ed7-379a93e9da4f",
+            "correlation_key": "80dde23e-dafb-4f04-b202-33eeb5697c3a:exfiltrate",
+            "created_at": "2026-02-11T21:33:05.03893Z",
+            "dedupe_bucket": "2026-02-11T21:00:00Z",
+            "description": "Pattern rule for exfiltration-style prompts",
+            "evidence": {
+              "matches": 1,
+              "pattern": "exfiltrate",
+              "threshold_value": 1,
+              "window_end": "2026-02-11T21:36:31.331889513Z",
+              "window_start": "2026-02-11T21:31:31.331889513Z"
+            },
+            "first_fired_at": "2026-02-11T21:33:05.03893Z",
+            "incident_id": "48625d2b-c0df-4fe6-b8cb-dabc47410eae",
+            "labels": {
+              "metric_key": "",
+              "rule_type": "PATTERN"
+            },
+            "last_fired_at": "2026-02-11T21:36:31.332454Z",
+            "metric_value": 1,
+            "rule_id": "80dde23e-dafb-4f04-b202-33eeb5697c3a",
+            "severity": "CRITICAL",
+            "status": "FIRING",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "threshold_value": 1,
+            "title": "pattern rule triggered: Live E2E Exfiltration Pattern 20260211-2",
+            "updated_at": "2026-02-11T21:36:31.341446Z"
+          },
+          {
+            "alert_id": "3979df20-034b-4345-947a-47937e51478d",
+            "correlation_key": "4a8f92cc-cef4-458a-a820-1de760142b9d:decision.deny_count",
+            "created_at": "2026-02-11T21:33:03.437584Z",
+            "dedupe_bucket": "2026-02-11T21:00:00Z",
+            "description": "Triggers on deny decisions generated by live E2E OpenAI traffic",
+            "evidence": {
+              "comparator": ">=",
+              "metric_key": "decision.deny_count",
+              "metric_value": 1,
+              "stats": {
+                "allow_count": 0,
+                "deny_count": 1,
+                "deny_rate": 33.33333333333333,
+                "escalate_count": 1,
+                "escalate_rate": 33.33333333333333,
+                "shadow_count": 1,
+                "total_count": 3
+              },
+              "threshold_value": 1,
+              "window_end": "2026-02-11T21:36:29.755956887Z",
+              "window_start": "2026-02-11T21:31:29.755956887Z"
+            },
+            "first_fired_at": "2026-02-11T21:33:03.437584Z",
+            "incident_id": "5f2efd44-1340-4b1f-9430-fc8b12caf082",
+            "labels": {
+              "metric_key": "decision.deny_count",
+              "rule_type": "THRESHOLD"
+            },
+            "last_fired_at": "2026-02-11T21:36:29.759944Z",
+            "metric_value": 1,
+            "rule_id": "4a8f92cc-cef4-458a-a820-1de760142b9d",
+            "severity": "HIGH",
+            "status": "FIRING",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "threshold_value": 1,
+            "title": "threshold rule triggered: Live E2E Deny Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:36:29.76508Z"
+          },
+          {
+            "alert_id": "4f7adf6c-f586-4e9e-9eb0-4fed4c7b8028",
+            "correlation_key": "147e4b08-d3ba-4ebe-8afc-b2cc70e6d2ca:decision.escalate_count",
+            "created_at": "2026-02-11T21:33:01.859669Z",
+            "dedupe_bucket": "2026-02-11T21:00:00Z",
+            "description": "Triggers on escalate decisions generated by live E2E OpenAI traffic",
+            "evidence": {
+              "comparator": ">=",
+              "metric_key": "decision.escalate_count",
+              "metric_value": 1,
+              "stats": {
+                "allow_count": 0,
+                "deny_count": 1,
+                "deny_rate": 33.33333333333333,
+                "escalate_count": 1,
+                "escalate_rate": 33.33333333333333,
+                "shadow_count": 1,
+                "total_count": 3
+              },
+              "threshold_value": 1,
+              "window_end": "2026-02-11T21:36:28.169135344Z",
+              "window_start": "2026-02-11T21:31:28.169135344Z"
+            },
+            "first_fired_at": "2026-02-11T21:33:01.859669Z",
+            "incident_id": "a3bcf073-0717-49e9-924a-e11c4f1b4604",
+            "labels": {
+              "metric_key": "decision.escalate_count",
+              "rule_type": "THRESHOLD"
+            },
+            "last_fired_at": "2026-02-11T21:36:28.177643Z",
+            "metric_value": 1,
+            "rule_id": "147e4b08-d3ba-4ebe-8afc-b2cc70e6d2ca",
+            "severity": "CRITICAL",
+            "status": "FIRING",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "threshold_value": 1,
+            "title": "threshold rule triggered: Live E2E Escalate Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:36:28.190682Z"
+          },
+          {
+            "alert_id": "66335c8c-de42-44b1-a806-93aa76ca8a81",
+            "correlation_key": "dbbc0b01-b941-46aa-8aaa-e6a164adeb43:exfiltrate",
+            "created_at": "2026-02-11T21:33:00.141051Z",
+            "dedupe_bucket": "2026-02-11T21:00:00Z",
+            "description": "Pattern rule for exfiltration-style prompts",
+            "evidence": {
+              "matches": 1,
+              "pattern": "exfiltrate",
+              "threshold_value": 1,
+              "window_end": "2026-02-11T21:36:26.44705251Z",
+              "window_start": "2026-02-11T21:31:26.44705251Z"
+            },
+            "first_fired_at": "2026-02-11T21:33:00.141051Z",
+            "incident_id": "f8442e2a-1b2e-4571-b7f5-f8a5c2e9e96b",
+            "labels": {
+              "metric_key": "",
+              "rule_type": "PATTERN"
+            },
+            "last_fired_at": "2026-02-11T21:36:26.447542Z",
+            "metric_value": 1,
+            "rule_id": "dbbc0b01-b941-46aa-8aaa-e6a164adeb43",
+            "severity": "CRITICAL",
+            "status": "FIRING",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "threshold_value": 1,
+            "title": "pattern rule triggered: Live E2E Exfiltration Pattern 20260211-2",
+            "updated_at": "2026-02-11T21:36:26.452771Z"
+          }
+        ],
+        "generated_at": "2026-02-11T21:36:59.584459345Z",
+        "incidents": [
+          {
+            "created_at": "2026-02-11T21:36:59.248714Z",
+            "created_by": "kernel.api",
+            "description": "Mitigation controls applied",
+            "detected_at": "2026-02-11T21:36:59.248714Z",
+            "incident_id": "a67aa66b-7dd6-4ab1-85d1-0b28cd6f6750",
+            "metadata": {
+              "run_id": "20260211-213639",
+              "suite": "live_e2e"
+            },
+            "mttr_seconds": 0,
+            "resolved_at": "2026-02-11T21:36:59.285356Z",
+            "severity": "CRITICAL",
+            "source": "MANUAL",
+            "started_at": "2026-02-11T21:36:59.248714Z",
+            "status": "RESOLVED",
+            "tags": [
+              "live-e2e",
+              "20260211-213639"
+            ],
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Live E2E OpenAI Governance Incident (20260211-213639)",
+            "updated_at": "2026-02-11T21:36:59.285356Z",
+            "updated_by": "kernel.api"
+          },
+          {
+            "correlation_key": "886c0350-4d28-4575-a816-03029d7cfab2:decision.escalate_count",
+            "created_at": "2026-02-11T21:36:58.113777Z",
+            "created_by": "kernel.alert-engine",
+            "description": "Auto-created from alert b1689fa7-47a2-4097-91be-a8b74fc851e2",
+            "detected_at": "2026-02-11T21:36:58.113777Z",
+            "incident_id": "1f9b26d8-1004-4d51-a147-c04dbbb5fa30",
+            "metadata": {
+              "alert_id": "b1689fa7-47a2-4097-91be-a8b74fc851e2",
+              "rule_id": "886c0350-4d28-4575-a816-03029d7cfab2"
+            },
+            "severity": "CRITICAL",
+            "source": "AUTO",
+            "started_at": "2026-02-11T21:36:58.113777Z",
+            "status": "OPEN",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Incident for Live E2E Escalate Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:36:58.113777Z",
+            "updated_by": "kernel.alert-engine"
+          },
+          {
+            "correlation_key": "ab0bc1d2-bf2c-49dc-98f0-dbe04dee9292:exfiltrate",
+            "created_at": "2026-02-11T21:36:56.45325Z",
+            "created_by": "kernel.alert-engine",
+            "description": "Auto-created from alert 1d566941-afd0-4649-8ccf-51bb138d989e",
+            "detected_at": "2026-02-11T21:36:56.45325Z",
+            "incident_id": "87f6d185-3634-47cd-a282-56a4093c61a2",
+            "metadata": {
+              "alert_id": "1d566941-afd0-4649-8ccf-51bb138d989e",
+              "rule_id": "ab0bc1d2-bf2c-49dc-98f0-dbe04dee9292"
+            },
+            "severity": "CRITICAL",
+            "source": "AUTO",
+            "started_at": "2026-02-11T21:36:56.45325Z",
+            "status": "OPEN",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Incident for Live E2E Exfiltration Pattern 20260211-2",
+            "updated_at": "2026-02-11T21:36:56.45325Z",
+            "updated_by": "kernel.alert-engine"
+          },
+          {
+            "correlation_key": "0232d523-c469-4ea8-a6fc-9086f04d0338:decision.deny_count",
+            "created_at": "2026-02-11T21:33:12.819653Z",
+            "created_by": "kernel.alert-engine",
+            "description": "Auto-created from alert 845ef1c6-27b9-4bdd-96f4-defd3940a970",
+            "detected_at": "2026-02-11T21:33:12.819653Z",
+            "incident_id": "1555e275-7a35-461c-a263-8eba0d69a182",
+            "metadata": {
+              "alert_id": "845ef1c6-27b9-4bdd-96f4-defd3940a970",
+              "rule_id": "0232d523-c469-4ea8-a6fc-9086f04d0338"
+            },
+            "severity": "HIGH",
+            "source": "AUTO",
+            "started_at": "2026-02-11T21:33:12.819653Z",
+            "status": "OPEN",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Incident for Live E2E Deny Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:33:12.819653Z",
+            "updated_by": "kernel.alert-engine"
+          },
+          {
+            "correlation_key": "c5803b4d-9076-421c-86dd-3ba358f4f1ad:decision.escalate_count",
+            "created_at": "2026-02-11T21:33:11.253906Z",
+            "created_by": "kernel.alert-engine",
+            "description": "Auto-created from alert 905f4876-7bb6-4dbd-87df-8a02ab544088",
+            "detected_at": "2026-02-11T21:33:11.253906Z",
+            "incident_id": "6181eb86-445c-4b3d-b48c-456eae77abe4",
+            "metadata": {
+              "alert_id": "905f4876-7bb6-4dbd-87df-8a02ab544088",
+              "rule_id": "c5803b4d-9076-421c-86dd-3ba358f4f1ad"
+            },
+            "severity": "CRITICAL",
+            "source": "AUTO",
+            "started_at": "2026-02-11T21:33:11.253906Z",
+            "status": "OPEN",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Incident for Live E2E Escalate Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:33:11.253906Z",
+            "updated_by": "kernel.alert-engine"
+          },
+          {
+            "correlation_key": "bace2f7c-01b0-4313-8b52-5f87685d7a43:exfiltrate",
+            "created_at": "2026-02-11T21:33:09.703482Z",
+            "created_by": "kernel.alert-engine",
+            "description": "Auto-created from alert 85fe287a-f3c7-4133-b8e7-f4b4778aefcd",
+            "detected_at": "2026-02-11T21:33:09.703482Z",
+            "incident_id": "a3b9a2d6-71d1-49bf-be4a-40efc716da52",
+            "metadata": {
+              "alert_id": "85fe287a-f3c7-4133-b8e7-f4b4778aefcd",
+              "rule_id": "bace2f7c-01b0-4313-8b52-5f87685d7a43"
+            },
+            "severity": "CRITICAL",
+            "source": "AUTO",
+            "started_at": "2026-02-11T21:33:09.703482Z",
+            "status": "OPEN",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Incident for Live E2E Exfiltration Pattern 20260211-2",
+            "updated_at": "2026-02-11T21:33:09.703482Z",
+            "updated_by": "kernel.alert-engine"
+          },
+          {
+            "correlation_key": "cc849ae6-04be-428a-b52e-dd804ff3dec6:decision.deny_count",
+            "created_at": "2026-02-11T21:33:08.159958Z",
+            "created_by": "kernel.alert-engine",
+            "description": "Auto-created from alert dfc81415-2fa8-459a-bba1-bc77b43d6980",
+            "detected_at": "2026-02-11T21:33:08.159958Z",
+            "incident_id": "6308c93f-a379-4a75-8b31-2d3c9be45264",
+            "metadata": {
+              "alert_id": "dfc81415-2fa8-459a-bba1-bc77b43d6980",
+              "rule_id": "cc849ae6-04be-428a-b52e-dd804ff3dec6"
+            },
+            "severity": "HIGH",
+            "source": "AUTO",
+            "started_at": "2026-02-11T21:33:08.159958Z",
+            "status": "OPEN",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Incident for Live E2E Deny Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:33:08.159958Z",
+            "updated_by": "kernel.alert-engine"
+          },
+          {
+            "correlation_key": "6a8db65b-3b3d-470a-a2c6-ad8f5767ec84:decision.escalate_count",
+            "created_at": "2026-02-11T21:33:06.578077Z",
+            "created_by": "kernel.alert-engine",
+            "description": "Auto-created from alert 270126b2-0f94-4b9d-a054-4ebec202da03",
+            "detected_at": "2026-02-11T21:33:06.578077Z",
+            "incident_id": "6afd7318-8d5a-4e04-b472-cfc6fd4b316c",
+            "metadata": {
+              "alert_id": "270126b2-0f94-4b9d-a054-4ebec202da03",
+              "rule_id": "6a8db65b-3b3d-470a-a2c6-ad8f5767ec84"
+            },
+            "severity": "CRITICAL",
+            "source": "AUTO",
+            "started_at": "2026-02-11T21:33:06.578077Z",
+            "status": "OPEN",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Incident for Live E2E Escalate Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:33:06.578077Z",
+            "updated_by": "kernel.alert-engine"
+          },
+          {
+            "correlation_key": "80dde23e-dafb-4f04-b202-33eeb5697c3a:exfiltrate",
+            "created_at": "2026-02-11T21:33:05.047337Z",
+            "created_by": "kernel.alert-engine",
+            "description": "Auto-created from alert 2b3c0a7c-a595-4835-9ed7-379a93e9da4f",
+            "detected_at": "2026-02-11T21:33:05.047337Z",
+            "incident_id": "48625d2b-c0df-4fe6-b8cb-dabc47410eae",
+            "metadata": {
+              "alert_id": "2b3c0a7c-a595-4835-9ed7-379a93e9da4f",
+              "rule_id": "80dde23e-dafb-4f04-b202-33eeb5697c3a"
+            },
+            "severity": "CRITICAL",
+            "source": "AUTO",
+            "started_at": "2026-02-11T21:33:05.047337Z",
+            "status": "OPEN",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Incident for Live E2E Exfiltration Pattern 20260211-2",
+            "updated_at": "2026-02-11T21:33:05.047337Z",
+            "updated_by": "kernel.alert-engine"
+          },
+          {
+            "correlation_key": "4a8f92cc-cef4-458a-a820-1de760142b9d:decision.deny_count",
+            "created_at": "2026-02-11T21:33:03.441238Z",
+            "created_by": "kernel.alert-engine",
+            "description": "Auto-created from alert 3979df20-034b-4345-947a-47937e51478d",
+            "detected_at": "2026-02-11T21:33:03.441238Z",
+            "incident_id": "5f2efd44-1340-4b1f-9430-fc8b12caf082",
+            "metadata": {
+              "alert_id": "3979df20-034b-4345-947a-47937e51478d",
+              "rule_id": "4a8f92cc-cef4-458a-a820-1de760142b9d"
+            },
+            "severity": "HIGH",
+            "source": "AUTO",
+            "started_at": "2026-02-11T21:33:03.441238Z",
+            "status": "OPEN",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Incident for Live E2E Deny Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:33:03.441238Z",
+            "updated_by": "kernel.alert-engine"
+          },
+          {
+            "correlation_key": "147e4b08-d3ba-4ebe-8afc-b2cc70e6d2ca:decision.escalate_count",
+            "created_at": "2026-02-11T21:33:01.86363Z",
+            "created_by": "kernel.alert-engine",
+            "description": "Auto-created from alert 4f7adf6c-f586-4e9e-9eb0-4fed4c7b8028",
+            "detected_at": "2026-02-11T21:33:01.86363Z",
+            "incident_id": "a3bcf073-0717-49e9-924a-e11c4f1b4604",
+            "metadata": {
+              "alert_id": "4f7adf6c-f586-4e9e-9eb0-4fed4c7b8028",
+              "rule_id": "147e4b08-d3ba-4ebe-8afc-b2cc70e6d2ca"
+            },
+            "severity": "CRITICAL",
+            "source": "AUTO",
+            "started_at": "2026-02-11T21:33:01.86363Z",
+            "status": "OPEN",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Incident for Live E2E Escalate Threshold 20260211-2",
+            "updated_at": "2026-02-11T21:33:01.86363Z",
+            "updated_by": "kernel.alert-engine"
+          },
+          {
+            "correlation_key": "dbbc0b01-b941-46aa-8aaa-e6a164adeb43:exfiltrate",
+            "created_at": "2026-02-11T21:33:00.145114Z",
+            "created_by": "kernel.alert-engine",
+            "description": "Auto-created from alert 66335c8c-de42-44b1-a806-93aa76ca8a81",
+            "detected_at": "2026-02-11T21:33:00.145114Z",
+            "incident_id": "f8442e2a-1b2e-4571-b7f5-f8a5c2e9e96b",
+            "metadata": {
+              "alert_id": "66335c8c-de42-44b1-a806-93aa76ca8a81",
+              "rule_id": "dbbc0b01-b941-46aa-8aaa-e6a164adeb43"
+            },
+            "severity": "CRITICAL",
+            "source": "AUTO",
+            "started_at": "2026-02-11T21:33:00.145114Z",
+            "status": "OPEN",
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Incident for Live E2E Exfiltration Pattern 20260211-2",
+            "updated_at": "2026-02-11T21:33:00.145114Z",
+            "updated_by": "kernel.alert-engine"
+          },
+          {
+            "created_at": "2026-02-11T21:16:11.875019Z",
+            "created_by": "kernel.api",
+            "description": "Mitigation controls applied",
+            "detected_at": "2026-02-11T21:16:11.875019Z",
+            "incident_id": "d392a9eb-14a5-4e9a-ae56-233d55de6db1",
+            "metadata": {
+              "run_id": "20260211-211427",
+              "suite": "live_e2e"
+            },
+            "mttr_seconds": 0,
+            "resolved_at": "2026-02-11T21:16:11.944008Z",
+            "severity": "HIGH",
+            "source": "MANUAL",
+            "started_at": "2026-02-11T21:16:11.875019Z",
+            "status": "RESOLVED",
+            "tags": [
+              "live-e2e",
+              "20260211-211427"
+            ],
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Live E2E OpenAI Governance Incident (20260211-211427)",
+            "updated_at": "2026-02-11T21:16:11.944008Z",
+            "updated_by": "kernel.api"
+          },
+          {
+            "created_at": "2026-02-11T21:07:24.597838Z",
+            "created_by": "kernel.api",
+            "description": "Mitigation controls applied",
+            "detected_at": "2026-02-11T21:07:24.597838Z",
+            "incident_id": "6dc70e3f-ef64-490a-a0d0-dae97a64bf8d",
+            "metadata": {
+              "run_id": "20260211-210538",
+              "suite": "live_e2e"
+            },
+            "mttr_seconds": 0,
+            "resolved_at": "2026-02-11T21:07:24.675596Z",
+            "severity": "HIGH",
+            "source": "MANUAL",
+            "started_at": "2026-02-11T21:07:24.597838Z",
+            "status": "RESOLVED",
+            "tags": [
+              "live-e2e",
+              "20260211-210538"
+            ],
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Live E2E OpenAI Governance Incident (20260211-210538)",
+            "updated_at": "2026-02-11T21:07:24.675596Z",
+            "updated_by": "kernel.api"
+          }
+        ],
+        "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+      },
+      "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+    }
+  },
+  "soc2_report": {
+    "ok": true,
+    "payload": {
+      "generated_at": "2026-02-11T21:36:59.570053303Z",
+      "metrics": {
+        "alerts": {
+          "open": 11,
+          "resolved": 0,
+          "total": 11
+        },
+        "audit_log_count": 127,
+        "decision_stats": {
+          "allow_count": 7,
+          "deny_count": 3,
+          "deny_rate": 18.75,
+          "escalate_count": 3,
+          "escalate_rate": 18.75,
+          "shadow_count": 3,
+          "total_count": 16
+        },
+        "incidents": {
+          "median_mttr_s": 0,
+          "open": 11,
+          "resolved": 3,
+          "total": 14
+        }
+      },
+      "recent_audit_items": [
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "c61ad90e-c1d8-497b-b8f7-396cbe8dea66",
+          "created_at": "2026-02-11T21:36:58.112855Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "b1689fa7-47a2-4097-91be-a8b74fc851e2",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "ec59a892-8306-47e8-bdcf-a9b4d8fb7976",
+          "created_at": "2026-02-11T21:36:56.452242Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "1d566941-afd0-4649-8ccf-51bb138d989e",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "1fc72d26-aa7c-4789-9ff6-ad589b9a4a04",
+          "created_at": "2026-02-11T21:36:50.864422Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-213639",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "75ad7cf2-8208-4da3-8e06-383b75654af0",
+          "created_at": "2026-02-11T21:36:49.748775Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-213639",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "843e3b13-f60a-4f8a-84d8-2c98deb73e0f",
+          "created_at": "2026-02-11T21:36:44.310046Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-213639",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "c7f056a5-ad27-4761-8cb4-1749f8b93640",
+          "created_at": "2026-02-11T21:36:40.281482Z",
+          "details": {
+            "rule_type": "COMPLIANCE"
+          },
+          "resource_id": "ac47c33b-12ae-4df3-ab7b-98cc76fae023",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "fa955e1c-034b-4715-8305-284b05b205e2",
+          "created_at": "2026-02-11T21:36:40.270136Z",
+          "details": {
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "ab0bc1d2-bf2c-49dc-98f0-dbe04dee9292",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "b1b89542-a5b8-4b0f-98e7-b56599198372",
+          "created_at": "2026-02-11T21:36:40.258431Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "886c0350-4d28-4575-a816-03029d7cfab2",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "8f2f0f94-f039-4d16-8974-ba6a9555c1ea",
+          "created_at": "2026-02-11T21:36:40.240862Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "29902ed4-9ea3-498f-96e7-16b42f61159b",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "80b783ee-e82c-4444-9de1-a07d7da15e3f",
+          "created_at": "2026-02-11T21:36:40.227893Z",
+          "details": {
+            "kind": "EMAIL",
+            "name": "live-e2e-email-[REDACTED_PHONE]"
+          },
+          "resource_id": "16ab16f7-68f1-4550-97eb-a8bd95ab839d",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "2bad044a-9068-4140-8a30-9ae84f1de996",
+          "created_at": "2026-02-11T21:36:40.210572Z",
+          "details": {
+            "kind": "WEBHOOK",
+            "name": "live-e2e-webhook-[REDACTED_PHONE]"
+          },
+          "resource_id": "c7d96af2-1c19-4956-95a7-aafe0c905dfe",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "75cf1144-a346-40d8-8364-ccedbe4495c4",
+          "created_at": "2026-02-11T21:36:40.196365Z",
+          "details": {
+            "kind": "SLACK",
+            "name": "live-e2e-slack-[REDACTED_PHONE]"
+          },
+          "resource_id": "d4d92722-db45-47a2-9f3d-8d2a677b20de",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "c5db61ac-9802-4bae-b054-2d43bd500193",
+          "created_at": "2026-02-11T21:36:39.112422Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "845ef1c6-27b9-4bdd-96f4-defd3940a970",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "f27b6c76-c82b-47ed-a67a-31cec1542961",
+          "created_at": "2026-02-11T21:36:37.44355Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "905f4876-7bb6-4dbd-87df-8a02ab544088",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "cb2d1571-58d3-466a-980b-b0c254b6a670",
+          "created_at": "2026-02-11T21:36:35.906945Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "85fe287a-f3c7-4133-b8e7-f4b4778aefcd",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "5771254f-eb88-478c-b3dd-569229591d7d",
+          "created_at": "2026-02-11T21:36:34.394513Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "dfc81415-2fa8-459a-bba1-bc77b43d6980",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "c4c0b4cc-5c6b-4c41-b924-14f6f6ead73f",
+          "created_at": "2026-02-11T21:36:32.88184Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "270126b2-0f94-4b9d-a054-4ebec202da03",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "bf4ad423-d699-464c-81bb-73bc877bc096",
+          "created_at": "2026-02-11T21:36:31.339629Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "2b3c0a7c-a595-4835-9ed7-379a93e9da4f",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "5ff0e55f-fae9-4bab-a7d2-879247209017",
+          "created_at": "2026-02-11T21:36:29.762921Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "3979df20-034b-4345-947a-47937e51478d",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "25b606ef-4c99-4bb7-9319-998329d10ca9",
+          "created_at": "2026-02-11T21:36:28.189061Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "4f7adf6c-f586-4e9e-9eb0-4fed4c7b8028",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "98db7b05-5d26-40ec-9745-1ee7e4802f8b",
+          "created_at": "2026-02-11T21:36:26.449895Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "66335c8c-de42-44b1-a806-93aa76ca8a81",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "d13a1610-35a1-45ba-91be-92f73a061b0b",
+          "created_at": "2026-02-11T21:36:08.902888Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "845ef1c6-27b9-4bdd-96f4-defd3940a970",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "53b61fa8-7f92-48ca-aef6-4cefbaab0cc7",
+          "created_at": "2026-02-11T21:36:07.370979Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "905f4876-7bb6-4dbd-87df-8a02ab544088",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "8bf3c7e3-ae8c-45d2-aca8-07efa82e3e4a",
+          "created_at": "2026-02-11T21:36:05.751748Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "85fe287a-f3c7-4133-b8e7-f4b4778aefcd",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "8baccf1f-cc67-4501-92e1-aee7a09888bc",
+          "created_at": "2026-02-11T21:36:04.184247Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "dfc81415-2fa8-459a-bba1-bc77b43d6980",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "c427cbc9-4bc5-4187-8830-2837dbe71efd",
+          "created_at": "2026-02-11T21:36:02.615668Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "270126b2-0f94-4b9d-a054-4ebec202da03",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "962c46f3-b6ad-4f91-a411-dea74f998d4c",
+          "created_at": "2026-02-11T21:36:01.031607Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "2b3c0a7c-a595-4835-9ed7-379a93e9da4f",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "14c72fda-a14d-47b7-bce1-8c0cb0dcaf31",
+          "created_at": "2026-02-11T21:35:59.49806Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "3979df20-034b-4345-947a-47937e51478d",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "688dc87a-ccb8-417d-8801-ae7c30e8b5e8",
+          "created_at": "2026-02-11T21:35:58.009486Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "4f7adf6c-f586-4e9e-9eb0-4fed4c7b8028",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "15a8dc59-5545-43f2-8be7-64f8e5ab65fa",
+          "created_at": "2026-02-11T21:35:56.446553Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "66335c8c-de42-44b1-a806-93aa76ca8a81",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "e8ecdc6b-c66a-4eed-9a1c-eab9a2152648",
+          "created_at": "2026-02-11T21:35:39.23934Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "845ef1c6-27b9-4bdd-96f4-defd3940a970",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "f8edeac2-cf16-4d0b-8b83-f8fdbb0740b9",
+          "created_at": "2026-02-11T21:35:37.661624Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "905f4876-7bb6-4dbd-87df-8a02ab544088",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "16a64b5b-dc56-4eb2-b881-2dabbe40ecb9",
+          "created_at": "2026-02-11T21:35:36.070386Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "85fe287a-f3c7-4133-b8e7-f4b4778aefcd",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "f53911cb-bbfc-4d4a-9939-e6e66f9f26b7",
+          "created_at": "2026-02-11T21:35:34.508549Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "dfc81415-2fa8-459a-bba1-bc77b43d6980",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "e2c26c2d-eb0b-42ee-8d76-1a1313bd86f3",
+          "created_at": "2026-02-11T21:35:32.992548Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "270126b2-0f94-4b9d-a054-4ebec202da03",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "49303f85-c06f-4fce-8f1a-2c147db8041d",
+          "created_at": "2026-02-11T21:35:31.360149Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "2b3c0a7c-a595-4835-9ed7-379a93e9da4f",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "a0e17bb0-726f-4720-a65e-1e81ecc1b8af",
+          "created_at": "2026-02-11T21:35:29.704525Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "3979df20-034b-4345-947a-47937e51478d",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "7e94f5ca-3ed8-48c6-ae14-4e08885d7db2",
+          "created_at": "2026-02-11T21:35:28.087654Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "4f7adf6c-f586-4e9e-9eb0-4fed4c7b8028",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "46e4429e-45bf-4c28-9d66-af6b74547bf3",
+          "created_at": "2026-02-11T21:35:26.44211Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "66335c8c-de42-44b1-a806-93aa76ca8a81",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "607553b8-1d8c-4f85-ba6a-5917b37e7adf",
+          "created_at": "2026-02-11T21:35:12.314398Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "845ef1c6-27b9-4bdd-96f4-defd3940a970",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "d09fcbbb-a503-4788-b185-e31164176a93",
+          "created_at": "2026-02-11T21:35:10.812468Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "905f4876-7bb6-4dbd-87df-8a02ab544088",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "5f144b64-8edc-490c-b021-30fd329d22f2",
+          "created_at": "2026-02-11T21:35:09.319452Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "85fe287a-f3c7-4133-b8e7-f4b4778aefcd",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "b4f70e51-8ad9-4703-b0df-a206215ad1d0",
+          "created_at": "2026-02-11T21:35:07.806566Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "dfc81415-2fa8-459a-bba1-bc77b43d6980",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "8623d179-c437-47aa-9cf1-a28db119eced",
+          "created_at": "2026-02-11T21:35:06.238756Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "270126b2-0f94-4b9d-a054-4ebec202da03",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "ddbeedbf-a398-4662-a053-1864c1065cc0",
+          "created_at": "2026-02-11T21:35:04.727609Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "2b3c0a7c-a595-4835-9ed7-379a93e9da4f",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "5ce25030-991b-449e-820b-8a289a28fb77",
+          "created_at": "2026-02-11T21:35:03.205553Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "3979df20-034b-4345-947a-47937e51478d",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "087e7720-14b8-444e-8efb-ecf0f77697de",
+          "created_at": "2026-02-11T21:35:01.709954Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "4f7adf6c-f586-4e9e-9eb0-4fed4c7b8028",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "0b2c5687-2d89-4389-a234-d0be793a1001",
+          "created_at": "2026-02-11T21:35:00.130082Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "66335c8c-de42-44b1-a806-93aa76ca8a81",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "1c7aa759-8948-48bf-83bf-e35545296105",
+          "created_at": "2026-02-11T21:34:42.442643Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "845ef1c6-27b9-4bdd-96f4-defd3940a970",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "d79523de-679c-45da-b369-c5e1fe9b7cb2",
+          "created_at": "2026-02-11T21:34:40.89803Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "905f4876-7bb6-4dbd-87df-8a02ab544088",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "06cf224f-6190-488b-9c17-1a534a0de234",
+          "created_at": "2026-02-11T21:34:39.371906Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "85fe287a-f3c7-4133-b8e7-f4b4778aefcd",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "162d3207-6950-46c3-ba54-df5a81f29b9a",
+          "created_at": "2026-02-11T21:34:37.805775Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "dfc81415-2fa8-459a-bba1-bc77b43d6980",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "4c24542e-4d5b-4b7a-a62c-9880df425ab9",
+          "created_at": "2026-02-11T21:34:36.245602Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "270126b2-0f94-4b9d-a054-4ebec202da03",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "fff0dc53-bf55-4da0-8213-0d242a6dd11d",
+          "created_at": "2026-02-11T21:34:34.752537Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "2b3c0a7c-a595-4835-9ed7-379a93e9da4f",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "3867ed3d-d815-4af4-ab90-77efb19e889c",
+          "created_at": "2026-02-11T21:34:33.2524Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "3979df20-034b-4345-947a-47937e51478d",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "d7fcff35-389c-4711-b9de-fe5682f414db",
+          "created_at": "2026-02-11T21:34:31.724229Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "4f7adf6c-f586-4e9e-9eb0-4fed4c7b8028",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "b16c72dc-7146-4d79-ba13-4d414fdbd3bb",
+          "created_at": "2026-02-11T21:34:30.117679Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "66335c8c-de42-44b1-a806-93aa76ca8a81",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "d2aed50b-b4c0-4c25-a202-1222bb8b552e",
+          "created_at": "2026-02-11T21:34:12.569095Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "845ef1c6-27b9-4bdd-96f4-defd3940a970",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "114d435f-bf6f-46fd-90ae-9749ba3c7c9a",
+          "created_at": "2026-02-11T21:34:11.042296Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "905f4876-7bb6-4dbd-87df-8a02ab544088",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "7ac9d217-573f-4be7-bce9-b82b6501577f",
+          "created_at": "2026-02-11T21:34:09.483911Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "85fe287a-f3c7-4133-b8e7-f4b4778aefcd",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "e0bccdd6-a4e6-43de-87d4-5c2ac2b7d445",
+          "created_at": "2026-02-11T21:34:07.938896Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "dfc81415-2fa8-459a-bba1-bc77b43d6980",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "681eb7a2-f618-446c-a43e-64a0bb5374db",
+          "created_at": "2026-02-11T21:34:06.392475Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "270126b2-0f94-4b9d-a054-4ebec202da03",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "443a1552-c011-49e1-9b15-109185b4055a",
+          "created_at": "2026-02-11T21:34:04.834199Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "2b3c0a7c-a595-4835-9ed7-379a93e9da4f",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "1f0ed1c0-bda3-4fbe-9a86-737f0af42e0a",
+          "created_at": "2026-02-11T21:34:03.260048Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "3979df20-034b-4345-947a-47937e51478d",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "70f7ec17-b9cc-420f-aab0-5846ce0a337c",
+          "created_at": "2026-02-11T21:34:01.668083Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "4f7adf6c-f586-4e9e-9eb0-4fed4c7b8028",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "1373b35e-3773-4b2a-b422-838af47ec568",
+          "created_at": "2026-02-11T21:34:00.127894Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "66335c8c-de42-44b1-a806-93aa76ca8a81",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "38657058-1cd8-4fd9-b2b6-6f0f811282ef",
+          "created_at": "2026-02-11T21:33:42.736062Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "845ef1c6-27b9-4bdd-96f4-defd3940a970",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "976ab057-251c-4e5a-93f0-8e1dfb75e2de",
+          "created_at": "2026-02-11T21:33:41.001637Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "905f4876-7bb6-4dbd-87df-8a02ab544088",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "795cd861-cb28-41c7-bf28-6a9baeea1a0d",
+          "created_at": "2026-02-11T21:33:39.243999Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "85fe287a-f3c7-4133-b8e7-f4b4778aefcd",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "0f1df278-065a-4cd6-9f10-38ed452ba2a1",
+          "created_at": "2026-02-11T21:33:37.681873Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "dfc81415-2fa8-459a-bba1-bc77b43d6980",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "1540bd47-7a43-4947-99e7-bd4db2d3367d",
+          "created_at": "2026-02-11T21:33:36.153741Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "270126b2-0f94-4b9d-a054-4ebec202da03",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "aef9a6e0-52fb-4eda-aa46-b6f276155d93",
+          "created_at": "2026-02-11T21:33:34.635317Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "2b3c0a7c-a595-4835-9ed7-379a93e9da4f",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "d07181d2-1a8d-41e4-9037-60ed77f6e80e",
+          "created_at": "2026-02-11T21:33:33.145723Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "3979df20-034b-4345-947a-47937e51478d",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "ca2b0318-4df0-438b-b600-5ce527b0f8c9",
+          "created_at": "2026-02-11T21:33:31.62014Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "4f7adf6c-f586-4e9e-9eb0-4fed4c7b8028",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "ef584794-3f7d-4946-b162-67fc8a4f5f28",
+          "created_at": "2026-02-11T21:33:30.119958Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "66335c8c-de42-44b1-a806-93aa76ca8a81",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "3d09e374-565b-42be-abff-a5ee5af9c159",
+          "created_at": "2026-02-11T21:33:12.818504Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "845ef1c6-27b9-4bdd-96f4-defd3940a970",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "01e263b8-231c-4b86-b618-34d6a0643629",
+          "created_at": "2026-02-11T21:33:11.25227Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "905f4876-7bb6-4dbd-87df-8a02ab544088",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "5af7aaaf-d6b7-4bbf-a610-26a7b1a4ec7a",
+          "created_at": "2026-02-11T21:33:09.701849Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "85fe287a-f3c7-4133-b8e7-f4b4778aefcd",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "0dd14a7c-7dbe-4731-ac57-fe494fc61eb8",
+          "created_at": "2026-02-11T21:33:08.158923Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "dfc81415-2fa8-459a-bba1-bc77b43d6980",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "de8ab791-fd5f-44da-91b9-05a5443f2593",
+          "created_at": "2026-02-11T21:33:06.57651Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "270126b2-0f94-4b9d-a054-4ebec202da03",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "a5db78d9-b9cb-4aae-9619-38300f38707f",
+          "created_at": "2026-02-11T21:33:05.045742Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "2b3c0a7c-a595-4835-9ed7-379a93e9da4f",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "5c30b82a-d638-44c1-b167-c3e959d0387d",
+          "created_at": "2026-02-11T21:33:03.439763Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "3979df20-034b-4345-947a-47937e51478d",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "eee412b1-dc79-44f8-aeb2-64ea836eb133",
+          "created_at": "2026-02-11T21:33:01.862111Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "4f7adf6c-f586-4e9e-9eb0-4fed4c7b8028",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_FIRED",
+          "actor": "kernel.alert-engine",
+          "audit_id": "0b2a3ca3-be99-45b2-bcce-8378793d6bbf",
+          "created_at": "2026-02-11T21:33:00.143681Z",
+          "details": {
+            "rule_id": "[REDACTED_TOKEN]",
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "66335c8c-de42-44b1-a806-93aa76ca8a81",
+          "resource_type": "alert",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "SIEM_EXPORT",
+          "actor": "kernel.api",
+          "audit_id": "0eb3e1e8-a5de-481c-98ed-ad18df28604d",
+          "created_at": "2026-02-11T21:16:12.533729Z",
+          "details": {
+            "delivered": false,
+            "format": "JSON"
+          },
+          "resource_id": "siem",
+          "resource_type": "integration",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "COMPLIANCE_REPORT_SOC2",
+          "actor": "kernel.api",
+          "audit_id": "32ad85f6-58a7-47ed-8529-d87cd4625870",
+          "created_at": "2026-02-11T21:16:12.518414Z",
+          "details": {
+            "from": "2026-02-11T17:16:12Z",
+            "to": "2026-02-11T21:16:12Z"
+          },
+          "resource_id": "soc2",
+          "resource_type": "compliance_report",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "TRACE_EXPORT_CREATE",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "0bc832dd-3b88-41da-8f58-9d60d9187999",
+          "created_at": "2026-02-11T21:16:12.374076Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/trace/export",
+            "status": 200
+          },
+          "resource_type": "trace_export",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_ESCALATION_RESOLVE",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "5f7d9b15-8b25-42f7-aec4-cdb1af26f57a",
+          "created_at": "2026-02-11T21:16:11.992129Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/escalations/[REDACTED_TOKEN]/resolve",
+            "status": 200
+          },
+          "resource_id": "e7d088f2-4891-483f-92b2-cd45cbabcd99",
+          "resource_type": "escalation",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_RESOLVE",
+          "actor": "kernel.api",
+          "audit_id": "4044a084-8876-4584-8838-21b96fb0b946",
+          "created_at": "2026-02-11T21:16:11.946335Z",
+          "details": {
+            "note": "Live E2E validation completed for [REDACTED_PHONE]"
+          },
+          "resource_id": "d392a9eb-14a5-4e9a-ae56-233d55de6db1",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_UPDATE",
+          "actor": "kernel.api",
+          "audit_id": "ebc28508-0380-4dfb-8b4a-a04528ca9953",
+          "created_at": "2026-02-11T21:16:11.918638Z",
+          "details": {
+            "status": "MITIGATING"
+          },
+          "resource_id": "d392a9eb-14a5-4e9a-ae56-233d55de6db1",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_UPDATE",
+          "actor": "kernel.api",
+          "audit_id": "95a3c5a1-a998-44a9-8d36-9c07a7b1b41e",
+          "created_at": "2026-02-11T21:16:11.894705Z",
+          "details": {
+            "status": "INVESTIGATING"
+          },
+          "resource_id": "d392a9eb-14a5-4e9a-ae56-233d55de6db1",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "b2a72875-ee07-4b92-ba1a-8fc4047b6515",
+          "created_at": "2026-02-11T21:16:11.878266Z",
+          "details": {
+            "severity": "HIGH"
+          },
+          "resource_id": "d392a9eb-14a5-4e9a-ae56-233d55de6db1",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "40e2a141-27f8-45c3-8cdd-79f9fb2fb41b",
+          "created_at": "2026-02-11T21:14:38.82921Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-211427",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "8cbc7e28-e8d0-41d6-b1d5-9a7b3303fb71",
+          "created_at": "2026-02-11T21:14:37.975698Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-211427",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "ed22cb80-6110-4681-b9ea-4a2232c51226",
+          "created_at": "2026-02-11T21:14:31.584981Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-211427",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "acb16db5-9363-48bf-b5af-d26d37c4d142",
+          "created_at": "2026-02-11T21:14:27.969809Z",
+          "details": {
+            "rule_type": "COMPLIANCE"
+          },
+          "resource_id": "21131441-e8ce-4442-9805-4a3e7d95e32a",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "90141bec-d742-4645-b19d-6b2a896f03cc",
+          "created_at": "2026-02-11T21:14:27.954825Z",
+          "details": {
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "dbbc0b01-b941-46aa-8aaa-e6a164adeb43",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "64bf6142-b94d-4965-836c-19c012edc283",
+          "created_at": "2026-02-11T21:14:27.941311Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "147e4b08-d3ba-4ebe-8afc-b2cc70e6d2ca",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "ece29179-3921-43c8-a30d-cbd075998716",
+          "created_at": "2026-02-11T21:14:27.920532Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "4a8f92cc-cef4-458a-a820-1de760142b9d",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "50141995-1fc7-4fb6-9de6-3fd6b5d354c3",
+          "created_at": "2026-02-11T21:14:27.90333Z",
+          "details": {
+            "kind": "EMAIL",
+            "name": "live-e2e-email-[REDACTED_PHONE]"
+          },
+          "resource_id": "76d51730-e60c-4439-b088-7ae10ee2145a",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "1142eff2-50f4-44b7-98d9-472da60569df",
+          "created_at": "2026-02-11T21:14:27.890396Z",
+          "details": {
+            "kind": "WEBHOOK",
+            "name": "live-e2e-webhook-[REDACTED_PHONE]"
+          },
+          "resource_id": "168426ce-7c6d-4600-88b1-acfaffd2f565",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "84982874-3c2b-47c8-afde-fe09d46e5575",
+          "created_at": "2026-02-11T21:14:27.876282Z",
+          "details": {
+            "kind": "SLACK",
+            "name": "live-e2e-slack-[REDACTED_PHONE]"
+          },
+          "resource_id": "65a784d5-dc9d-4a3d-bf0a-4a11784532e7",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "SIEM_EXPORT",
+          "actor": "kernel.api",
+          "audit_id": "151226f3-b35f-4c59-bd41-ee899a047a2c",
+          "created_at": "2026-02-11T21:12:39.697544Z",
+          "details": {
+            "delivered": false,
+            "format": "JSON"
+          },
+          "resource_id": "siem",
+          "resource_type": "integration",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "COMPLIANCE_REPORT_SOC2",
+          "actor": "kernel.api",
+          "audit_id": "bc6ccb29-2e47-46c6-8402-c42737c423e9",
+          "created_at": "2026-02-11T21:12:39.683951Z",
+          "details": {
+            "from": "2026-02-11T17:12:39Z",
+            "to": "2026-02-11T21:12:39Z"
+          },
+          "resource_id": "soc2",
+          "resource_type": "compliance_report",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "TRACE_EXPORT_CREATE",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "e6a255d3-d603-42db-b7a0-048f555409f4",
+          "created_at": "2026-02-11T21:12:39.567033Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/trace/export",
+            "status": 200
+          },
+          "resource_type": "trace_export",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_ESCALATION_RESOLVE",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "28a40f19-7f04-491c-922b-7fbef0b773b4",
+          "created_at": "2026-02-11T21:07:24.744765Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/escalations/[REDACTED_TOKEN]/resolve",
+            "status": 200
+          },
+          "resource_id": "ea0478c1-4374-407f-9b3c-7d1f76368bff",
+          "resource_type": "escalation",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_RESOLVE",
+          "actor": "kernel.api",
+          "audit_id": "676cfeaa-aea9-4506-b004-7db8aaefc35e",
+          "created_at": "2026-02-11T21:07:24.67984Z",
+          "details": {
+            "note": "Live E2E validation completed for [REDACTED_PHONE]"
+          },
+          "resource_id": "6dc70e3f-ef64-490a-a0d0-dae97a64bf8d",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_UPDATE",
+          "actor": "kernel.api",
+          "audit_id": "3c404eaa-e219-4bce-8015-9b161456bdba",
+          "created_at": "2026-02-11T21:07:24.653937Z",
+          "details": {
+            "status": "MITIGATING"
+          },
+          "resource_id": "6dc70e3f-ef64-490a-a0d0-dae97a64bf8d",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_UPDATE",
+          "actor": "kernel.api",
+          "audit_id": "7eb25a75-3ed5-491b-9829-8137ecfd06cc",
+          "created_at": "2026-02-11T21:07:24.631391Z",
+          "details": {
+            "status": "INVESTIGATING"
+          },
+          "resource_id": "6dc70e3f-ef64-490a-a0d0-dae97a64bf8d",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "3bd3f298-68b9-4010-b3f3-af548b070199",
+          "created_at": "2026-02-11T21:07:24.607236Z",
+          "details": {
+            "severity": "HIGH"
+          },
+          "resource_id": "6dc70e3f-ef64-490a-a0d0-dae97a64bf8d",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "cc503bcb-ad6b-47d9-a947-09c5aed10173",
+          "created_at": "2026-02-11T21:05:51.240124Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-210538",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "35953428-d9fc-4b87-bfeb-87467705773d",
+          "created_at": "2026-02-11T21:05:49.831805Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-210538",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "ba1e6976-589f-4a90-b4aa-16986c250a98",
+          "created_at": "2026-02-11T21:05:43.171259Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-210538",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "64ec2236-cc7b-437b-adc9-b6f6e443c165",
+          "created_at": "2026-02-11T21:05:38.832854Z",
+          "details": {
+            "rule_type": "COMPLIANCE"
+          },
+          "resource_id": "9ba0d48c-6229-4430-9b9a-0be8faee0ce3",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "3de3a5d0-f9d9-4940-a458-7ae48c395a46",
+          "created_at": "2026-02-11T21:05:38.816095Z",
+          "details": {
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "80dde23e-dafb-4f04-b202-33eeb5697c3a",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "3755bc2b-7bc8-42c9-905d-5273286ba86e",
+          "created_at": "2026-02-11T21:05:38.796902Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "6a8db65b-3b3d-470a-a2c6-ad8f5767ec84",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "57d6361e-b9d8-4fcd-9044-b7e42f1ac9ad",
+          "created_at": "2026-02-11T21:05:38.772076Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "cc849ae6-04be-428a-b52e-dd804ff3dec6",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "91bf532e-c933-42a7-bf3e-a6b1b3e2a721",
+          "created_at": "2026-02-11T21:05:38.755174Z",
+          "details": {
+            "kind": "EMAIL",
+            "name": "live-e2e-email-[REDACTED_PHONE]"
+          },
+          "resource_id": "5f6ac308-c61b-4253-a225-041a8779566d",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "bbd5ce1d-8890-4d30-919c-d8261a8244fc",
+          "created_at": "2026-02-11T21:05:38.73821Z",
+          "details": {
+            "kind": "WEBHOOK",
+            "name": "live-e2e-webhook-[REDACTED_PHONE]"
+          },
+          "resource_id": "53daad75-34fc-4521-b582-7dbca67b4a38",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "0b80dbf1-8d9d-409d-9c04-ff24beee9006",
+          "created_at": "2026-02-11T21:05:38.723703Z",
+          "details": {
+            "kind": "SLACK",
+            "name": "live-e2e-slack-[REDACTED_PHONE]"
+          },
+          "resource_id": "a0f7b6c6-e993-407d-9cf0-13534a56fdc1",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "b7c613ff-4150-42be-b726-7c6e1c0b0e84",
+          "created_at": "2026-02-11T20:57:52.274317Z",
+          "details": {
+            "rule_type": "COMPLIANCE"
+          },
+          "resource_id": "36790302-5585-4c92-9257-295ef135904e",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "03b2ed71-8a83-4ee1-b358-e7545fc12048",
+          "created_at": "2026-02-11T20:57:52.261139Z",
+          "details": {
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "bace2f7c-01b0-4313-8b52-5f87685d7a43",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "1f6ecc7e-107f-48ff-9efe-413b95eb1f07",
+          "created_at": "2026-02-11T20:57:52.248453Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "c5803b4d-9076-421c-86dd-3ba358f4f1ad",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "d92dd2a9-f00e-4dc5-b894-bac18789bb35",
+          "created_at": "2026-02-11T20:57:52.22795Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "0232d523-c469-4ea8-a6fc-9086f04d0338",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "7509c578-9954-4783-8d43-913535a6e7ee",
+          "created_at": "2026-02-11T20:57:52.212456Z",
+          "details": {
+            "kind": "EMAIL",
+            "name": "live-e2e-email-[REDACTED_PHONE]"
+          },
+          "resource_id": "bd395a4e-c019-48bc-9605-e03ffdcac5a4",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "17dc17b9-6897-4d2f-9f07-fd7053c9b8a9",
+          "created_at": "2026-02-11T20:57:52.200145Z",
+          "details": {
+            "kind": "WEBHOOK",
+            "name": "live-e2e-webhook-[REDACTED_PHONE]"
+          },
+          "resource_id": "a7ec3161-3a79-4eb5-b2a6-219ba6b84607",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "c1f7bd68-b38c-453b-9cbd-cb11ea3e8855",
+          "created_at": "2026-02-11T20:57:52.185225Z",
+          "details": {
+            "kind": "SLACK",
+            "name": "live-e2e-slack-[REDACTED_PHONE]"
+          },
+          "resource_id": "448ac87f-a827-4d2d-920d-a5c5a13c5244",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        }
+      ],
+      "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+      "window_end": "2026-02-11T21:36:59Z",
+      "window_start": "2026-02-11T17:36:59Z"
+    }
+  },
+  "stage": "stage_04_verify",
+  "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+  "trace_counts": {
+    "ALLOW": 2,
+    "DENY": 1,
+    "ESCALATE": 1,
+    "SHADOW": 1
+  },
+  "trace_export": {
+    "request": {
+      "created_at": "2026-02-11T21:36:59.472637345Z",
+      "job_id": "4c028258-3c7d-4a13-8a5d-3cc8b2852642",
+      "object_url": "s3://sentinos-traces/ac6b93ed-8715-42c1-9292-e21a18718e29/exports/2026/02/4c028258-3c7d-4a13-8a5d-3cc8b2852642.json",
+      "status": "COMPLETED",
+      "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+      "trace_count": 16
+    },
+    "status": {
+      "created_at": "2026-02-11T21:36:59.477777Z",
+      "job_id": "4c028258-3c7d-4a13-8a5d-3cc8b2852642",
+      "object_url": "s3://sentinos-traces/ac6b93ed-8715-42c1-9292-e21a18718e29/exports/2026/02/4c028258-3c7d-4a13-8a5d-3cc8b2852642.json",
+      "status": "COMPLETED",
+      "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+      "trace_count": 16
+    }
+  }
+}

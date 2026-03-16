@@ -1,0 +1,35 @@
+{
+  "agent_id": "live-e2e-agent-20260211-210538",
+  "channel_ids": [
+    "a0f7b6c6-e993-407d-9cf0-13534a56fdc1",
+    "53daad75-34fc-4521-b582-7dbca67b4a38",
+    "5f6ac308-c61b-4253-a225-041a8779566d"
+  ],
+  "decision_counts": {
+    "ALLOW": 2,
+    "DENY": 1,
+    "ESCALATE": 1,
+    "SHADOW": 1
+  },
+  "incident_id": "6dc70e3f-ef64-490a-a0d0-dae97a64bf8d",
+  "incident_status": "RESOLVED",
+  "policy_id": "sentinos/live-e2e/openai-governance-20260211-210538",
+  "policy_version": "v1.0.20260211210538",
+  "rule_ids": {
+    "compliance_deny": "9ba0d48c-6229-4430-9b9a-0be8faee0ce3",
+    "deny_threshold": "cc849ae6-04be-428a-b52e-dd804ff3dec6",
+    "escalate_threshold": "6a8db65b-3b3d-470a-a2c6-ad8f5767ec84",
+    "pattern_exfiltrate": "80dde23e-dafb-4f04-b202-33eeb5697c3a"
+  },
+  "run_id": "20260211-210538",
+  "session_id": "live-e2e-session-20260211-210538",
+  "target_tool": "llm.openai.chat.completions",
+  "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+  "trace_ids": [
+    "5f99143f-eb79-47cd-9eab-227060b5a481",
+    "f1cd86b9-1efb-4634-8ab5-9c0e78a1be92",
+    "b0d135ea-5370-40c2-8467-7661b0965c38",
+    "93c78f4a-f2c7-4acf-a199-bdd7649a7c96",
+    "ca4b98c8-11c3-4d21-bf5e-d496b1e16237"
+  ]
+}

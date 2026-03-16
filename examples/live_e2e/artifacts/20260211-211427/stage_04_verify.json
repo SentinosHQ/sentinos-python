@@ -1,0 +1,845 @@
+{
+  "agent_id": "live-e2e-agent-20260211-211427",
+  "console_views": {
+    "alerts": "http://localhost:3000/#alerts",
+    "analytics": "http://localhost:3000/#analytics",
+    "dashboard": "http://localhost:3000/#dashboard",
+    "incidents": "http://localhost:3000/#incidents",
+    "kernel": "http://localhost:3000/#kernel",
+    "traces": "http://localhost:3000/#traces",
+    "workforce": "http://localhost:3000/#workforce"
+  },
+  "counts": {
+    "alerts": 0,
+    "anomalies": 0,
+    "channels": 9,
+    "governance_violations": 4,
+    "incidents": 2,
+    "pending_escalations_for_session": 0
+  },
+  "datadog_export": {
+    "error": "SENTINOS_E2E_DATADOG_API_KEY not set (optional)",
+    "ok": false
+  },
+  "governance_dashboard": {
+    "by_category": {
+      "uncategorized": 4
+    },
+    "by_severity": {
+      "unknown": 4
+    },
+    "deny_count": 2,
+    "escalate_count": 2,
+    "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+    "top_policies": [
+      {
+        "policy_id": "sentinos/live-e2e/openai-governance-20260211-205751",
+        "violation_count": 4
+      }
+    ],
+    "total_violations": 4,
+    "window_end": "2026-02-11T22:16:12.405368129Z",
+    "window_start": "2026-01-12T21:16:12.40536817Z"
+  },
+  "governance_report_summary_keys": [
+    "dashboard",
+    "generated_at",
+    "tenant_id",
+    "violations",
+    "window_end",
+    "window_start"
+  ],
+  "integrations_health": {
+    "ok": true,
+    "payload": {
+      "channels": [
+        {
+          "channel_id": "76d51730-e60c-4439-b088-7ae10ee2145a",
+          "enabled": true,
+          "kind": "EMAIL",
+          "name": "live-e2e-email-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "168426ce-7c6d-4600-88b1-acfaffd2f565",
+          "enabled": true,
+          "kind": "WEBHOOK",
+          "name": "live-e2e-webhook-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "65a784d5-dc9d-4a3d-bf0a-4a11784532e7",
+          "enabled": true,
+          "kind": "SLACK",
+          "name": "live-e2e-slack-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "5f6ac308-c61b-4253-a225-041a8779566d",
+          "enabled": true,
+          "kind": "EMAIL",
+          "name": "live-e2e-email-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "53daad75-34fc-4521-b582-7dbca67b4a38",
+          "enabled": true,
+          "kind": "WEBHOOK",
+          "name": "live-e2e-webhook-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "a0f7b6c6-e993-407d-9cf0-13534a56fdc1",
+          "enabled": true,
+          "kind": "SLACK",
+          "name": "live-e2e-slack-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "bd395a4e-c019-48bc-9605-e03ffdcac5a4",
+          "enabled": true,
+          "kind": "EMAIL",
+          "name": "live-e2e-email-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "a7ec3161-3a79-4eb5-b2a6-219ba6b84607",
+          "enabled": true,
+          "kind": "WEBHOOK",
+          "name": "live-e2e-webhook-20260211-2",
+          "status": "healthy"
+        },
+        {
+          "channel_id": "448ac87f-a827-4d2d-920d-a5c5a13c5244",
+          "enabled": true,
+          "kind": "SLACK",
+          "name": "live-e2e-slack-20260211-2",
+          "status": "healthy"
+        }
+      ],
+      "summary": {
+        "disabled": 0,
+        "healthy": 9,
+        "invalid_config": 0
+      },
+      "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+    }
+  },
+  "run_id": "20260211-211427",
+  "runtime_metrics": {
+    "collected_at": "2026-02-11T21:16:12.481175+00:00",
+    "collection_scope": "kernel_container",
+    "collection_source": "process+prometheus",
+    "collection_warnings": [],
+    "cpu_percent": 0.9248508283195545,
+    "latency_avg_ms": 35.7,
+    "latency_histogram": [
+      {
+        "bucket_count": 0,
+        "cumulative_count": 0,
+        "le_ms": 5
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 0,
+        "le_ms": 10
+      },
+      {
+        "bucket_count": 5,
+        "cumulative_count": 5,
+        "le_ms": 25
+      },
+      {
+        "bucket_count": 3,
+        "cumulative_count": 8,
+        "le_ms": 50
+      },
+      {
+        "bucket_count": 3,
+        "cumulative_count": 11,
+        "le_ms": 100
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 11,
+        "le_ms": 250
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 11,
+        "le_ms": 500
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 11,
+        "le_ms": 1000
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 11,
+        "le_ms": 2500
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 11,
+        "le_ms": 5000
+      },
+      {
+        "bucket_count": 0,
+        "cumulative_count": 11,
+        "le_ms": 10000
+      }
+    ],
+    "latency_p99_ms": 100,
+    "memory_total_mb": 17.6,
+    "memory_used_mb": 4.3,
+    "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+    "wasm_cache": {
+      "bundle_cache_entries": 3,
+      "loaded_policies": 3
+    }
+  },
+  "session_details": {
+    "ok": true,
+    "payload": "KernelGetSessionResponse200(tenant_id='ac6b93ed-8715-42c1-9292-e21a18718e29', session_id='live-e2e-session-20260211-211427', state=KernelGetSessionResponse200State(additional_properties={'_now_unix_ms': 1770844477988, 'escalations': {'e7d088f2-4891-483f-92b2-cd45cbabcd99': {'status': 'APPROVED', 'ts': '2026-02-11T21:16:11.991577087Z', 'ts_ms': 1770844571991}}, 'last_event_type': 'llm.response'}))"
+  },
+  "session_id": "live-e2e-session-20260211-211427",
+  "siem_export": {
+    "ok": true,
+    "payload": {
+      "alerts_exported": 0,
+      "content_type": "application/json",
+      "delivered": false,
+      "delivery_status": "not_requested",
+      "format": "JSON",
+      "generated_at": "2026-02-11T21:16:12.533716837Z",
+      "incidents_exported": 2,
+      "payload": {
+        "alerts": [],
+        "generated_at": "2026-02-11T21:16:12.533719712Z",
+        "incidents": [
+          {
+            "created_at": "2026-02-11T21:16:11.875019Z",
+            "created_by": "kernel.api",
+            "description": "Mitigation controls applied",
+            "detected_at": "2026-02-11T21:16:11.875019Z",
+            "incident_id": "d392a9eb-14a5-4e9a-ae56-233d55de6db1",
+            "metadata": {
+              "run_id": "20260211-211427",
+              "suite": "live_e2e"
+            },
+            "mttr_seconds": 0,
+            "resolved_at": "2026-02-11T21:16:11.944008Z",
+            "severity": "HIGH",
+            "source": "MANUAL",
+            "started_at": "2026-02-11T21:16:11.875019Z",
+            "status": "RESOLVED",
+            "tags": [
+              "live-e2e",
+              "20260211-211427"
+            ],
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Live E2E OpenAI Governance Incident (20260211-211427)",
+            "updated_at": "2026-02-11T21:16:11.944008Z",
+            "updated_by": "kernel.api"
+          },
+          {
+            "created_at": "2026-02-11T21:07:24.597838Z",
+            "created_by": "kernel.api",
+            "description": "Mitigation controls applied",
+            "detected_at": "2026-02-11T21:07:24.597838Z",
+            "incident_id": "6dc70e3f-ef64-490a-a0d0-dae97a64bf8d",
+            "metadata": {
+              "run_id": "20260211-210538",
+              "suite": "live_e2e"
+            },
+            "mttr_seconds": 0,
+            "resolved_at": "2026-02-11T21:07:24.675596Z",
+            "severity": "HIGH",
+            "source": "MANUAL",
+            "started_at": "2026-02-11T21:07:24.597838Z",
+            "status": "RESOLVED",
+            "tags": [
+              "live-e2e",
+              "20260211-210538"
+            ],
+            "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+            "title": "Live E2E OpenAI Governance Incident (20260211-210538)",
+            "updated_at": "2026-02-11T21:07:24.675596Z",
+            "updated_by": "kernel.api"
+          }
+        ],
+        "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+      },
+      "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+    }
+  },
+  "soc2_report": {
+    "ok": true,
+    "payload": {
+      "generated_at": "2026-02-11T21:16:12.518400712Z",
+      "metrics": {
+        "alerts": {
+          "open": 0,
+          "resolved": 0,
+          "total": 0
+        },
+        "audit_log_count": 40,
+        "decision_stats": {
+          "allow_count": 5,
+          "deny_count": 2,
+          "deny_rate": 18.181818181818183,
+          "escalate_count": 2,
+          "escalate_rate": 18.181818181818183,
+          "shadow_count": 2,
+          "total_count": 11
+        },
+        "incidents": {
+          "median_mttr_s": 0,
+          "open": 0,
+          "resolved": 2,
+          "total": 2
+        }
+      },
+      "recent_audit_items": [
+        {
+          "action": "KERNEL_ESCALATION_RESOLVE",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "5f7d9b15-8b25-42f7-aec4-cdb1af26f57a",
+          "created_at": "2026-02-11T21:16:11.992129Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/escalations/[REDACTED_TOKEN]/resolve",
+            "status": 200
+          },
+          "resource_id": "e7d088f2-4891-483f-92b2-cd45cbabcd99",
+          "resource_type": "escalation",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_RESOLVE",
+          "actor": "kernel.api",
+          "audit_id": "4044a084-8876-4584-8838-21b96fb0b946",
+          "created_at": "2026-02-11T21:16:11.946335Z",
+          "details": {
+            "note": "Live E2E validation completed for [REDACTED_PHONE]"
+          },
+          "resource_id": "d392a9eb-14a5-4e9a-ae56-233d55de6db1",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_UPDATE",
+          "actor": "kernel.api",
+          "audit_id": "ebc28508-0380-4dfb-8b4a-a04528ca9953",
+          "created_at": "2026-02-11T21:16:11.918638Z",
+          "details": {
+            "status": "MITIGATING"
+          },
+          "resource_id": "d392a9eb-14a5-4e9a-ae56-233d55de6db1",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_UPDATE",
+          "actor": "kernel.api",
+          "audit_id": "95a3c5a1-a998-44a9-8d36-9c07a7b1b41e",
+          "created_at": "2026-02-11T21:16:11.894705Z",
+          "details": {
+            "status": "INVESTIGATING"
+          },
+          "resource_id": "d392a9eb-14a5-4e9a-ae56-233d55de6db1",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "b2a72875-ee07-4b92-ba1a-8fc4047b6515",
+          "created_at": "2026-02-11T21:16:11.878266Z",
+          "details": {
+            "severity": "HIGH"
+          },
+          "resource_id": "d392a9eb-14a5-4e9a-ae56-233d55de6db1",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "40e2a141-27f8-45c3-8cdd-79f9fb2fb41b",
+          "created_at": "2026-02-11T21:14:38.82921Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-211427",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "8cbc7e28-e8d0-41d6-b1d5-9a7b3303fb71",
+          "created_at": "2026-02-11T21:14:37.975698Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-211427",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "ed22cb80-6110-4681-b9ea-4a2232c51226",
+          "created_at": "2026-02-11T21:14:31.584981Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-211427",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "acb16db5-9363-48bf-b5af-d26d37c4d142",
+          "created_at": "2026-02-11T21:14:27.969809Z",
+          "details": {
+            "rule_type": "COMPLIANCE"
+          },
+          "resource_id": "21131441-e8ce-4442-9805-4a3e7d95e32a",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "90141bec-d742-4645-b19d-6b2a896f03cc",
+          "created_at": "2026-02-11T21:14:27.954825Z",
+          "details": {
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "dbbc0b01-b941-46aa-8aaa-e6a164adeb43",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "64bf6142-b94d-4965-836c-19c012edc283",
+          "created_at": "2026-02-11T21:14:27.941311Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "147e4b08-d3ba-4ebe-8afc-b2cc70e6d2ca",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "ece29179-3921-43c8-a30d-cbd075998716",
+          "created_at": "2026-02-11T21:14:27.920532Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "4a8f92cc-cef4-458a-a820-1de760142b9d",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "50141995-1fc7-4fb6-9de6-3fd6b5d354c3",
+          "created_at": "2026-02-11T21:14:27.90333Z",
+          "details": {
+            "kind": "EMAIL",
+            "name": "live-e2e-email-[REDACTED_PHONE]"
+          },
+          "resource_id": "76d51730-e60c-4439-b088-7ae10ee2145a",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "1142eff2-50f4-44b7-98d9-472da60569df",
+          "created_at": "2026-02-11T21:14:27.890396Z",
+          "details": {
+            "kind": "WEBHOOK",
+            "name": "live-e2e-webhook-[REDACTED_PHONE]"
+          },
+          "resource_id": "168426ce-7c6d-4600-88b1-acfaffd2f565",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "84982874-3c2b-47c8-afde-fe09d46e5575",
+          "created_at": "2026-02-11T21:14:27.876282Z",
+          "details": {
+            "kind": "SLACK",
+            "name": "live-e2e-slack-[REDACTED_PHONE]"
+          },
+          "resource_id": "65a784d5-dc9d-4a3d-bf0a-4a11784532e7",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "SIEM_EXPORT",
+          "actor": "kernel.api",
+          "audit_id": "151226f3-b35f-4c59-bd41-ee899a047a2c",
+          "created_at": "2026-02-11T21:12:39.697544Z",
+          "details": {
+            "delivered": false,
+            "format": "JSON"
+          },
+          "resource_id": "siem",
+          "resource_type": "integration",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "COMPLIANCE_REPORT_SOC2",
+          "actor": "kernel.api",
+          "audit_id": "bc6ccb29-2e47-46c6-8402-c42737c423e9",
+          "created_at": "2026-02-11T21:12:39.683951Z",
+          "details": {
+            "from": "2026-02-11T17:12:39Z",
+            "to": "2026-02-11T21:12:39Z"
+          },
+          "resource_id": "soc2",
+          "resource_type": "compliance_report",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "TRACE_EXPORT_CREATE",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "e6a255d3-d603-42db-b7a0-048f555409f4",
+          "created_at": "2026-02-11T21:12:39.567033Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/trace/export",
+            "status": 200
+          },
+          "resource_type": "trace_export",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_ESCALATION_RESOLVE",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "28a40f19-7f04-491c-922b-7fbef0b773b4",
+          "created_at": "2026-02-11T21:07:24.744765Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/escalations/[REDACTED_TOKEN]/resolve",
+            "status": 200
+          },
+          "resource_id": "ea0478c1-4374-407f-9b3c-7d1f76368bff",
+          "resource_type": "escalation",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_RESOLVE",
+          "actor": "kernel.api",
+          "audit_id": "676cfeaa-aea9-4506-b004-7db8aaefc35e",
+          "created_at": "2026-02-11T21:07:24.67984Z",
+          "details": {
+            "note": "Live E2E validation completed for [REDACTED_PHONE]"
+          },
+          "resource_id": "6dc70e3f-ef64-490a-a0d0-dae97a64bf8d",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_UPDATE",
+          "actor": "kernel.api",
+          "audit_id": "3c404eaa-e219-4bce-8015-9b161456bdba",
+          "created_at": "2026-02-11T21:07:24.653937Z",
+          "details": {
+            "status": "MITIGATING"
+          },
+          "resource_id": "6dc70e3f-ef64-490a-a0d0-dae97a64bf8d",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_UPDATE",
+          "actor": "kernel.api",
+          "audit_id": "7eb25a75-3ed5-491b-9829-8137ecfd06cc",
+          "created_at": "2026-02-11T21:07:24.631391Z",
+          "details": {
+            "status": "INVESTIGATING"
+          },
+          "resource_id": "6dc70e3f-ef64-490a-a0d0-dae97a64bf8d",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INCIDENT_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "3bd3f298-68b9-4010-b3f3-af548b070199",
+          "created_at": "2026-02-11T21:07:24.607236Z",
+          "details": {
+            "severity": "HIGH"
+          },
+          "resource_id": "6dc70e3f-ef64-490a-a0d0-dae97a64bf8d",
+          "resource_type": "incident",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "cc503bcb-ad6b-47d9-a947-09c5aed10173",
+          "created_at": "2026-02-11T21:05:51.240124Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-210538",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "35953428-d9fc-4b87-bfeb-87467705773d",
+          "created_at": "2026-02-11T21:05:49.831805Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-210538",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "KERNEL_SESSION_EVENT_APPEND",
+          "actor": "kernel.audit.middleware",
+          "audit_id": "ba1e6976-589f-4a90-b4aa-16986c250a98",
+          "created_at": "2026-02-11T21:05:43.171259Z",
+          "details": {
+            "method": "POST",
+            "path": "/v1/kernel/session/live-e2e-session-[REDACTED_PHONE]/event",
+            "status": 200
+          },
+          "resource_id": "live-e2e-session-20260211-210538",
+          "resource_type": "session",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "64ec2236-cc7b-437b-adc9-b6f6e443c165",
+          "created_at": "2026-02-11T21:05:38.832854Z",
+          "details": {
+            "rule_type": "COMPLIANCE"
+          },
+          "resource_id": "9ba0d48c-6229-4430-9b9a-0be8faee0ce3",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "3de3a5d0-f9d9-4940-a458-7ae48c395a46",
+          "created_at": "2026-02-11T21:05:38.816095Z",
+          "details": {
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "80dde23e-dafb-4f04-b202-33eeb5697c3a",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "3755bc2b-7bc8-42c9-905d-5273286ba86e",
+          "created_at": "2026-02-11T21:05:38.796902Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "6a8db65b-3b3d-470a-a2c6-ad8f5767ec84",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "57d6361e-b9d8-4fcd-9044-b7e42f1ac9ad",
+          "created_at": "2026-02-11T21:05:38.772076Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "cc849ae6-04be-428a-b52e-dd804ff3dec6",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "91bf532e-c933-42a7-bf3e-a6b1b3e2a721",
+          "created_at": "2026-02-11T21:05:38.755174Z",
+          "details": {
+            "kind": "EMAIL",
+            "name": "live-e2e-email-[REDACTED_PHONE]"
+          },
+          "resource_id": "5f6ac308-c61b-4253-a225-041a8779566d",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "bbd5ce1d-8890-4d30-919c-d8261a8244fc",
+          "created_at": "2026-02-11T21:05:38.73821Z",
+          "details": {
+            "kind": "WEBHOOK",
+            "name": "live-e2e-webhook-[REDACTED_PHONE]"
+          },
+          "resource_id": "53daad75-34fc-4521-b582-7dbca67b4a38",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "0b80dbf1-8d9d-409d-9c04-ff24beee9006",
+          "created_at": "2026-02-11T21:05:38.723703Z",
+          "details": {
+            "kind": "SLACK",
+            "name": "live-e2e-slack-[REDACTED_PHONE]"
+          },
+          "resource_id": "a0f7b6c6-e993-407d-9cf0-13534a56fdc1",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "b7c613ff-4150-42be-b726-7c6e1c0b0e84",
+          "created_at": "2026-02-11T20:57:52.274317Z",
+          "details": {
+            "rule_type": "COMPLIANCE"
+          },
+          "resource_id": "36790302-5585-4c92-9257-295ef135904e",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "03b2ed71-8a83-4ee1-b358-e7545fc12048",
+          "created_at": "2026-02-11T20:57:52.261139Z",
+          "details": {
+            "rule_type": "PATTERN"
+          },
+          "resource_id": "bace2f7c-01b0-4313-8b52-5f87685d7a43",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "1f6ecc7e-107f-48ff-9efe-413b95eb1f07",
+          "created_at": "2026-02-11T20:57:52.248453Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "c5803b4d-9076-421c-86dd-3ba358f4f1ad",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "ALERT_RULE_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "d92dd2a9-f00e-4dc5-b894-bac18789bb35",
+          "created_at": "2026-02-11T20:57:52.22795Z",
+          "details": {
+            "rule_type": "THRESHOLD"
+          },
+          "resource_id": "0232d523-c469-4ea8-a6fc-9086f04d0338",
+          "resource_type": "alert_rule",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "7509c578-9954-4783-8d43-913535a6e7ee",
+          "created_at": "2026-02-11T20:57:52.212456Z",
+          "details": {
+            "kind": "EMAIL",
+            "name": "live-e2e-email-[REDACTED_PHONE]"
+          },
+          "resource_id": "bd395a4e-c019-48bc-9605-e03ffdcac5a4",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "17dc17b9-6897-4d2f-9f07-fd7053c9b8a9",
+          "created_at": "2026-02-11T20:57:52.200145Z",
+          "details": {
+            "kind": "WEBHOOK",
+            "name": "live-e2e-webhook-[REDACTED_PHONE]"
+          },
+          "resource_id": "a7ec3161-3a79-4eb5-b2a6-219ba6b84607",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        },
+        {
+          "action": "INTEGRATION_CHANNEL_CREATE",
+          "actor": "kernel.api",
+          "audit_id": "c1f7bd68-b38c-453b-9cbd-cb11ea3e8855",
+          "created_at": "2026-02-11T20:57:52.185225Z",
+          "details": {
+            "kind": "SLACK",
+            "name": "live-e2e-slack-[REDACTED_PHONE]"
+          },
+          "resource_id": "448ac87f-a827-4d2d-920d-a5c5a13c5244",
+          "resource_type": "notification_channel",
+          "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+        }
+      ],
+      "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+      "window_end": "2026-02-11T21:16:12Z",
+      "window_start": "2026-02-11T17:16:12Z"
+    }
+  },
+  "stage": "stage_04_verify",
+  "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+  "trace_counts": {
+    "ALLOW": 2,
+    "DENY": 1,
+    "ESCALATE": 1,
+    "SHADOW": 1
+  },
+  "trace_export": {
+    "request": {
+      "created_at": "2026-02-11T21:16:12.353188254Z",
+      "job_id": "d1ea2a97-cf38-4fb4-8bb9-9a74fb146462",
+      "object_url": "s3://sentinos-traces/ac6b93ed-8715-42c1-9292-e21a18718e29/exports/2026/02/d1ea2a97-cf38-4fb4-8bb9-9a74fb146462.json",
+      "status": "COMPLETED",
+      "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+      "trace_count": 11
+    },
+    "status": {
+      "created_at": "2026-02-11T21:16:12.372724Z",
+      "job_id": "d1ea2a97-cf38-4fb4-8bb9-9a74fb146462",
+      "object_url": "s3://sentinos-traces/ac6b93ed-8715-42c1-9292-e21a18718e29/exports/2026/02/d1ea2a97-cf38-4fb4-8bb9-9a74fb146462.json",
+      "status": "COMPLETED",
+      "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29",
+      "trace_count": 11
+    }
+  }
+}

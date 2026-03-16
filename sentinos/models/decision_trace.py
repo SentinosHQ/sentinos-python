@@ -9,6 +9,9 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict
 
+from .cost import TraceCostBreakdown, TraceCostEvent
+from .lineage import TraceArtifactLineageSummary
+
 
 class DecisionTraceIntent(BaseModel):
     model_config = ConfigDict(extra="allow")
@@ -28,6 +31,30 @@ class DecisionTraceEvidenceItem(BaseModel):
 
 
 Decision = Literal["ALLOW", "DENY", "ESCALATE", "SHADOW"]
+DecisionTraceCheckCategory = Literal[
+    "permission",
+    "approval",
+    "budget",
+    "privacy",
+    "handoff",
+    "identity",
+    "tool",
+    "context",
+    "other",
+]
+DecisionTraceCheckStatus = Literal["CHECKED", "ALLOWED", "DENIED", "ESCALATED", "SHADOWED"]
+
+
+class DecisionTracePolicyCheck(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
+    key: str
+    label: str
+    category: DecisionTraceCheckCategory
+    status: DecisionTraceCheckStatus
+    reason: str | None = None
+    matched: bool | None = None
+    metadata: dict[str, Any] | None = None
 
 
 class DecisionTracePolicyEvaluation(BaseModel):
@@ -39,6 +66,7 @@ class DecisionTracePolicyEvaluation(BaseModel):
     reason: str | None = None
     evidence: list[DecisionTraceEvidenceItem] | None = None
     explain_plan: dict[str, Any] | None = None
+    checks: list[DecisionTracePolicyCheck] | None = None
 
 
 PolicyEvaluation = DecisionTracePolicyEvaluation
@@ -83,6 +111,11 @@ class DecisionTrace(BaseModel):
     outcome: dict[str, Any] | None = None
     provenance: list[Any] | None = None
     signatures: DecisionTraceSignatures | None = None
+    distributed_trace_id: str | None = None
+    distributed_span_id: str | None = None
+    cost_breakdown: TraceCostBreakdown | None = None
+    cost_events: list[TraceCostEvent] | None = None
+    artifact_lineage_summary: TraceArtifactLineageSummary | None = None
 
     @property
     def decision(self) -> Decision:

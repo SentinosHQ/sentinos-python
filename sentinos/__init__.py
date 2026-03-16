@@ -71,12 +71,38 @@ from .integrations import (
 from .kernel import KernelClient
 from .marketplace import MarketplaceClient
 from .models.alert import Alert, AlertRule, Anomaly
+from .models.cost import (
+    KernelCostAnomaliesResponse,
+    KernelCostAnomaly,
+    KernelCostAvoidedResponse,
+    KernelCostAvoidedRow,
+    KernelCostEventsResponse,
+    KernelCostSummaryResponse,
+    KernelCostSummaryRow,
+    TraceCostActorBreakdown,
+    TraceCostBreakdown,
+    TraceCostEvent,
+    TraceCostProviderModelBreakdown,
+    TraceCostRetryBreakdown,
+    TraceCostToolBreakdown,
+)
 from .models.decision_trace import DecisionTrace, PolicyEvaluation
 from .models.incident import Incident, IncidentTimelineEvent
 from .models.openresponses import OpenResponsesError, OpenResponsesItem, OpenResponsesRequest, OpenResponsesResponse
+from .models.otel import OtelExportConfig, OtelExportStatus, OtelExportTestResult
 from .models.policy import PolicyItem, PolicyMetadata
+from .models.replay import (
+    TraceReplayComparison,
+    TraceReplayDecision,
+    TraceReplayExportResponse,
+    TraceReplayMatrixEntry,
+    TraceReplayMatrixResponse,
+    TraceReplayReconstructionBasis,
+    TraceReplayResponse,
+)
 from .privacy import PrivacyClient
 from .traces import TracesClient
+from .utils.telemetry import TelemetryConfig, httpx_event_hooks
 
 __all__ = [
     "A2AClient",
@@ -92,6 +118,19 @@ __all__ = [
     "ControlplaneClient",
     "DashboardsClient",
     "DecisionTrace",
+    "TraceCostBreakdown",
+    "TraceCostEvent",
+    "TraceCostProviderModelBreakdown",
+    "TraceCostRetryBreakdown",
+    "TraceCostToolBreakdown",
+    "TraceCostActorBreakdown",
+    "KernelCostSummaryRow",
+    "KernelCostSummaryResponse",
+    "KernelCostEventsResponse",
+    "KernelCostAvoidedRow",
+    "KernelCostAvoidedResponse",
+    "KernelCostAnomaly",
+    "KernelCostAnomaliesResponse",
     "Incident",
     "IncidentsClient",
     "IncidentTimelineEvent",
@@ -142,6 +181,13 @@ __all__ = [
     "LLMPolicyResult",
     "MarketplaceClient",
     "PolicyEvaluation",
+    "TraceReplayDecision",
+    "TraceReplayComparison",
+    "TraceReplayReconstructionBasis",
+    "TraceReplayResponse",
+    "TraceReplayMatrixEntry",
+    "TraceReplayMatrixResponse",
+    "TraceReplayExportResponse",
     "PolicyItem",
     "PolicyMetadata",
     "SentinosClient",
@@ -158,4 +204,9 @@ __all__ = [
     "OpenResponsesItem",
     "OpenResponsesError",
     "PrivacyClient",
+    "TelemetryConfig",
+    "httpx_event_hooks",
+    "OtelExportConfig",
+    "OtelExportStatus",
+    "OtelExportTestResult",
 ]

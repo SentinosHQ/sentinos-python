@@ -1,0 +1,22 @@
+{
+  "channel_ids": [
+    "65a784d5-dc9d-4a3d-bf0a-4a11784532e7",
+    "168426ce-7c6d-4600-88b1-acfaffd2f565",
+    "76d51730-e60c-4439-b088-7ae10ee2145a"
+  ],
+  "policy_id": "sentinos/live-e2e/openai-governance-20260211-211427",
+  "policy_version": "v1.0.20260211211427",
+  "rule_ids": {
+    "compliance_deny": "21131441-e8ce-4442-9805-4a3e7d95e32a",
+    "deny_threshold": "4a8f92cc-cef4-458a-a820-1de760142b9d",
+    "escalate_threshold": "147e4b08-d3ba-4ebe-8afc-b2cc70e6d2ca",
+    "pattern_exfiltrate": "dbbc0b01-b941-46aa-8aaa-e6a164adeb43"
+  },
+  "run_id": "20260211-211427",
+  "simulation": {
+    "job_id": "2378d449-ac9c-4068-9a31-8e4311b4a0c5"
+  },
+  "stage": "stage_01_setup",
+  "target_tool": "llm.openai.chat.completions",
+  "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+}

@@ -1,0 +1,29 @@
+{
+  "run_id": "20260211-211427",
+  "stages_completed": [
+    {
+      "artifact": "/Users/gtomberlin/Documents/Code/Sentinos/packages/sentinos-python/examples/live_e2e/artifacts/20260211-211427/stage_01_setup.json",
+      "stage": "setup"
+    },
+    {
+      "artifact": "/Users/gtomberlin/Documents/Code/Sentinos/packages/sentinos-python/examples/live_e2e/artifacts/20260211-211427/stage_02_openai_traffic.json",
+      "stage": "traffic"
+    },
+    {
+      "artifact": "/Users/gtomberlin/Documents/Code/Sentinos/packages/sentinos-python/examples/live_e2e/artifacts/20260211-211427/stage_03_triage.json",
+      "stage": "triage"
+    },
+    {
+      "artifact": "/Users/gtomberlin/Documents/Code/Sentinos/packages/sentinos-python/examples/live_e2e/artifacts/20260211-211427/stage_04_verify.json",
+      "stage": "verify"
+    }
+  ],
+  "stages_failed": [],
+  "stages_requested": [
+    "setup",
+    "traffic",
+    "triage",
+    "verify"
+  ],
+  "tenant_id": "ac6b93ed-8715-42c1-9292-e21a18718e29"
+}
