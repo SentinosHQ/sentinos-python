@@ -3,7 +3,7 @@
 ```python
 from sentinos import SentinosClient
 
-client = SentinosClient(org_id="acme", auth_token="<jwt>", api_url="https://api.sentinos.ai")  # alias: tenant_id
+client = SentinosClient.from_env()
 
 rego = """
 package sentinos.policy
@@ -16,3 +16,5 @@ client.arbiter.create_policy(policy_id="finance/refund", rego=rego, version="v1"
 sim = client.arbiter.simulate_policy(candidate_rego=rego, trace_limit=50)
 print(sim.summary if hasattr(sim, "summary") else sim.to_dict())
 ```
+
+Override `SENTINOS_ARBITER_URL` only if Arbiter runs on a separate host from your base URL.

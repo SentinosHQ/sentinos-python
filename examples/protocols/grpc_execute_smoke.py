@@ -1,4 +1,4 @@
-"""Native gRPC execute example for Sentinos KernelProtocol."""
+"""Native gRPC execute example for Sentinos Kernel Protocol, driven entirely by environment variables."""
 
 from __future__ import annotations
 
@@ -23,12 +23,18 @@ except ModuleNotFoundError as exc:  # pragma: no cover - runtime dependency guar
 
 KERNEL_GRPC_METHOD = "/sentinos.kernel.v1.KernelProtocol/Execute"
 
-
 def _parse_bool_env(name: str, default: bool) -> bool:
     value = os.getenv(name)
     if value is None:
         return default
     return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _require_env(name: str) -> str:
+    value = os.getenv(name)
+    if not value:
+        raise SystemExit(f"Set {name} before running this example.")
+    return value.strip()
 
 
 def _load_channel(target: str) -> grpc.Channel:
@@ -63,9 +69,7 @@ def _metadata() -> Sequence[tuple[str, str]]:
 
 
 def main() -> None:
-    target = os.getenv("SENTINOS_GRPC_TARGET", "").strip()
-    if not target:
-        raise SystemExit("Set SENTINOS_GRPC_TARGET to your Sentinos Kernel gRPC endpoint before running this example.")
+    target = _require_env("SENTINOS_GRPC_TARGET")
     tenant_id = (os.getenv("SENTINOS_ORG_ID") or os.getenv("SENTINOS_TENANT_ID") or "acme").strip()
     agent_id = os.getenv("SENTINOS_GRPC_AGENT_ID", "grpc-smoke-agent")
     session_id = os.getenv("SENTINOS_GRPC_SESSION_ID", "grpc-smoke-session")
@@ -93,6 +97,7 @@ def main() -> None:
     )
     response = stub(payload, metadata=_metadata(), timeout=20)
     response_map = json_format.MessageToDict(response, preserving_proto_field_name=True)
+    print("Execution response:")
     print(json.dumps(response_map, indent=2, sort_keys=True))
 
 
