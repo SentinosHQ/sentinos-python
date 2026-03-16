@@ -1,13 +1,13 @@
 [project]
 name = "sentinos"
-version = "0.1.6"
+version = "0.1.7"
 description = "Sentinos Python SDK (control-plane client + runtime governance adapters)"
 authors = [{ name = "Sentinos" }]
 readme = { file = "README.md", content-type = "text/markdown" }
 license = { file = "LICENSE" }
 requires-python = ">=3.10"
 dependencies = [
-  "sentinos-sdk-core>=0.1.5",
+  "sentinos-sdk-core>=0.1.6",
   "pydantic>=2.10,<3",
 ]
 
