@@ -6,13 +6,12 @@ Install from PyPI:
 pip install sentinos
 ```
 
-Local dev:
+Authenticate with your Sentinos workspace:
 
 ```bash
-docker-compose up
-python3 -m venv .venv && source .venv/bin/activate
-pip install -e packages/sdk-core/python
-pip install -e packages/sentinos-python[dev]
+export SENTINOS_BASE_URL="https://api.sentinos.ai"
+export SENTINOS_ORG_ID="<org-id>"
+export SENTINOS_ACCESS_TOKEN="<access-token>"
 ```
 
 Minimal execute:
@@ -22,7 +21,7 @@ from sentinos import SentinosClient
 
 client = SentinosClient(
     org_id="acme",  # alias: tenant_id
-    api_url="http://localhost:8081",
+    api_url="https://api.sentinos.ai",
     auth_token="<jwt>",
 )
 

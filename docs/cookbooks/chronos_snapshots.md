@@ -5,10 +5,9 @@ from sentinos import SentinosClient
 
 client = SentinosClient(
     org_id="acme",  # alias: tenant_id
-    api_url="http://localhost:8081",
+    api_url="https://api.sentinos.ai",
     # override only when Chronos is intentionally hosted on a different endpoint.
-    # chronos_url="http://localhost:8083",
-    # chronos may use a different JWT in local docker-compose; pass `chronos_auth_token` when needed.
+    # chronos_url="https://chronos.sentinos.ai",
     auth_token="<jwt>",
 )
 

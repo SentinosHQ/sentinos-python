@@ -1,9 +1,5 @@
 # `sentinos` (Python SDK)
 
-<p>
-  <img src="assets/sentinos-mark.png" alt="Sentinos" width="72" />
-</p>
-
 ![Sentinos](assets/og-default.png)
 
 Sentinos is the control plane for AI agents: runtime governance, deterministic policy outcomes, and trace-backed forensics.
@@ -69,27 +65,6 @@ client = SentinosClient.simple(
     auth=JWTAuth(lambda: "<access-token>"),
 )
 print(client.kernel.get_runtime_metrics())
-```
-
-## Local Development
-
-Standalone SDK repo:
-
-```bash
-python3 -m venv .venv && source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -e .[dev]
-tox -q
-```
-
-Monorepo development (when `../sdk-core/python` exists):
-
-```bash
-python3 -m venv .venv && source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -e ../sdk-core/python
-pip install -e .[dev]
-tox -q
 ```
 
 ## Workforce Auth (Enterprise)
@@ -185,7 +160,7 @@ pip install "sentinos[grpc]"        # grpcio + protobuf (native gRPC protocol sm
 pip install "sentinos[langchain]"   # langchain runtime integrations
 ```
 
-Native Kernel gRPC protocol smoke example (non-Go interoperability):
+Native Kernel gRPC example (non-Go interoperability):
 
 ```bash
 export SENTINOS_GRPC_TARGET="localhost:9091"
@@ -193,25 +168,6 @@ export SENTINOS_ACCESS_TOKEN="<jwt-access-token>"
 export SENTINOS_ORG_ID="<org-id>"
 python examples/protocols/grpc_execute_smoke.py
 ```
-
-Live end-to-end OpenAI governance suite (real traffic + alerts/incidents/traces/evidence):
-
-```bash
-export SENTINOS_E2E_AUTH_MODE=token
-export SENTINOS_ORG_ID="<org-id>"
-export SENTINOS_ACCESS_TOKEN="<jwt-access-token>"
-export OPENAI_API_KEY="<openai-key>"
-python examples/live_e2e/run_full_live_e2e.py
-```
-
-Suite details:
-
-- `examples/live_e2e/README.md`
-- `examples/live_e2e/stage_00_bootstrap_account.py`
-- `examples/live_e2e/stage_01_setup.py`
-- `examples/live_e2e/stage_02_openai_traffic.py`
-- `examples/live_e2e/stage_03_triage.py`
-- `examples/live_e2e/stage_04_verify.py`
 
 Factory helpers for low-friction org onboarding:
 
@@ -277,27 +233,9 @@ result = adapter.converse(
 print(result.trace.trace_id, result.trace.decision)
 ```
 
-## Quality Gates
-
-Local package checks:
-
-```bash
-tox -q
-```
-
-Monorepo-only checks (if you have the full Sentinos repo):
-
-```bash
-scripts/quality/check_python_sdk_quality.sh
-scripts/quality/check_sdk_docs_examples.sh
-scripts/quality/check_sdk_parity_matrix.py
-```
-
 ## Reference
 
 - Docs: https://docs.sentinoshq.com/sdk/
-- Release runbook (monorepo): `docs/sentinos-python-sdk-release-runbook.md`
-- Release guide (package-local): `RELEASING.md`
 
 ## Trace Forensics and Retention Example
 

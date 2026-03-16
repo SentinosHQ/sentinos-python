@@ -45,7 +45,7 @@ password = pypi-<token>
 
 ## Preflight (Must Pass)
 
-From `packages/sentinos-python`:
+From the repository root:
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
@@ -54,8 +54,6 @@ pip install -e ".[dev]"
 tox -q
 ```
 
-Optional (monorepo only): run the repo-wide quality scripts if available.
-
 ## Version Bump
 
 1. Update `version` in `pyproject.toml`.
@@ -63,7 +61,7 @@ Optional (monorepo only): run the repo-wide quality scripts if available.
 
 ## Build
 
-From `packages/sentinos-python`:
+From the repository root:
 
 ```bash
 rm -rf dist/
@@ -95,19 +93,4 @@ python -c "from sentinos import SentinosClient; print('ok')"
 ```bash
 python -m twine upload dist/*
 ```
-
-## If You Are Splitting From the Monorepo
-
-You can publish from a monorepo without splitting. If you want a standalone OSS repo anyway,
-use a subtree split to keep history:
-
-```bash
-git subtree split --prefix packages/sentinos-python -b codex/sentinos-python-split
-git remote add sentinos-python-oss <git-url>
-git push sentinos-python-oss codex/sentinos-python-split:main
-```
-
-If you also want `sentinos-sdk-core` standalone, repeat with:
-
-`packages/sdk-core/python`
 
