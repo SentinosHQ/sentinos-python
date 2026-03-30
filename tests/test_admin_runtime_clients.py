@@ -10,6 +10,7 @@ from sentinos.billing import BillingClient
 from sentinos.client import SentinosClient
 from sentinos.controlplane import ControlplaneClient
 from sentinos.dashboards import DashboardsClient
+from sentinos.kernel import KernelClient
 from sentinos.privacy import PrivacyClient
 
 
@@ -17,6 +18,13 @@ from sentinos.privacy import PrivacyClient
 class FakeResponse:
     payload: dict[str, Any]
     status_code: int = 200
+    headers: dict[str, str] | None = None
+
+    @property
+    def content(self) -> bytes:
+        import json
+
+        return json.dumps(self.payload).encode("utf-8")
 
     def raise_for_status(self) -> None:
         if self.status_code >= 400:
@@ -215,6 +223,33 @@ class FakeHTTP:
             return FakeResponse({"usage": {"governed_executions": 42}})
         if url.endswith("/v1/kernel/billing/usage/events"):
             return FakeResponse({"events": [{"event_id": "be-1"}]})
+        if url == "/v1/kernel/escalations":
+            return FakeResponse(
+                {
+                    "escalations": [
+                        {
+                            "escalation_id": "7ead6b74-31a1-433e-a55f-3b6462dd7e15",
+                            "tenant_id": "org-1",
+                            "trace_id": "658bae1e-5042-4864-bb1d-737493336632",
+                            "session_id": "sess_prompt_firewall_escalate",
+                            "tool": "openai.responses.create",
+                            "status": "PENDING",
+                            "policy_id": "prompt-compliance-firewall",
+                            "policy_version": "tenant-org-1-cc8ee0f7",
+                            "reason": "Escalated for operator approval",
+                            "evidence": [
+                                {
+                                    "confidence": 1,
+                                    "hit": True,
+                                    "rule": "prompt_compliance",
+                                    "snippet": "Escalated for operator approval",
+                                }
+                            ],
+                            "created_at": "2026-03-30T03:44:27.156426Z",
+                        }
+                    ]
+                }
+            )
         if url.endswith("/v1/trace/privacy/policy"):
             return FakeResponse({"telemetry_mode": "redact"})
         if url.endswith("/v1/trace/privacy/scan"):
@@ -413,6 +448,18 @@ def test_billing_privacy_and_a2a_clients_cover_new_runtime_surfaces() -> None:
     assert kernel.http.calls[0][1] == "/v1/kernel/billing/entitlements"
     assert kernel.http.calls[1][2]["period_at"] == "2026-03-01T00:00:00Z"
     assert meshgate.http.calls[-1][2]["agents"] == "a,b"
+
+
+def test_kernel_list_escalations_accepts_array_evidence_payloads() -> None:
+    core = FakeCore("kernel")
+    client = KernelClient(core, tenant_id="org-1")
+
+    out = client.list_escalations(status="PENDING", limit=10)
+
+    assert len(out.escalations) == 1
+    assert isinstance(out.escalations[0].evidence, list)
+    assert out.escalations[0].evidence[0]["rule"] == "prompt_compliance"
+    assert core.http.calls[0][1] == "/v1/kernel/escalations"
 
 
 def test_chronos_client_covers_connector_surfaces() -> None:
