@@ -15,9 +15,12 @@ pip install sentinos
 Optional extras:
 
 ```bash
+pip install "sentinos[openai]"     # OpenAI provider adapters and examples
 pip install "sentinos[providers]"  # OpenAI, Anthropic, and Bedrock helpers
 pip install "sentinos[otel]"       # OpenTelemetry helpers
+pip install "sentinos[langgraph]"  # LangGraph workflow examples
 pip install "sentinos[langchain]"  # LangChain adapters
+pip install "sentinos[agents]"     # OpenAI Agents SDK examples
 pip install "sentinos[grpc]"       # Native gRPC example support
 ```
 
@@ -72,6 +75,25 @@ result = guard.run(
 )
 
 print(result.trace.trace_id, result.trace.decision)
+```
+
+`LLMGuard` and provider adapters attach an operator-safe `metadata.agent_rationale`
+envelope before execution. The envelope is derived from runtime context such as
+provider, model, operation, tool, workflow metadata, and optional concise
+rationale fields. It is not hidden chain-of-thought capture; forbidden hidden or
+raw fields are dropped before trace persistence.
+
+Runnable examples include:
+
+- `examples/openai_governed_tool_calling.py`
+- `examples/openai_agents_governed_tools.py`
+- `examples/langgraph_governed_workflow.py`
+- `examples/x402_governed_agent_payment.py`
+
+Validation:
+
+```bash
+PYTHONPATH=. python -m pytest
 ```
 
 ### Trace replay example

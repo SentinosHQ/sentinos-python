@@ -16,6 +16,7 @@ from .cost import (
     TraceCostToolBreakdown,
 )
 from .decision_trace import (
+    AgentRationale,
     DecisionTrace,
     DecisionTracePolicyCheck,
     DecisionTracePolicyEvaluation,
@@ -63,6 +64,7 @@ __all__ = (
     "KernelCostAnomaly",
     "KernelCostAnomaliesResponse",
     "DecisionTrace",
+    "AgentRationale",
     "DecisionTracePolicyCheck",
     "DecisionTracePolicyEvaluation",
     "TraceReplayDecision",

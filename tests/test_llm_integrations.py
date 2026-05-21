@@ -68,12 +68,16 @@ def test_authorize_sets_skip_connector_metadata() -> None:
         operation="chat.completions",
         model="gpt-4o-mini",
         request={"messages": [{"role": "user", "content": "hello"}]},
+        metadata={"agent_rationale": {"goal": "Answer a customer support question."}},
     )
 
     assert trace.decision == "ALLOW"
     call = kernel.execute_calls[0]
     assert call["metadata"]["skip_connector"] is True
     assert call["intent"]["tool"] == "llm.openai.chat.completions"
+    assert call["metadata"]["agent_rationale"]["capture_mode"] == "mixed"
+    assert call["metadata"]["agent_rationale"]["goal"] == "Answer a customer support question."
+    assert call["metadata"]["agent_rationale"]["runtime"]["model"] == "gpt-4o-mini"
 
 
 def test_run_allow_executes_provider_and_records_event() -> None:
@@ -91,6 +95,11 @@ def test_run_allow_executes_provider_and_records_event() -> None:
         operation="chat.completions",
         model="gpt-4o-mini",
         request={"messages": [{"role": "user", "content": "hello"}]},
+        rationale={
+            "goal": "Answer the support question.",
+            "hidden_reasoning": "do not capture this",
+            "messages": [{"role": "user", "content": "raw"}],
+        },
         invoke=invoke,
     )
 
@@ -98,6 +107,11 @@ def test_run_allow_executes_provider_and_records_event() -> None:
     assert result.trace.decision == "ALLOW"
     assert result.response["id"] == "resp-1"
     assert kernel.append_calls and kernel.append_calls[0]["event_type"] == "llm.response"
+    rationale = kernel.execute_calls[0]["metadata"]["agent_rationale"]
+    assert rationale["capture_mode"] == "mixed"
+    assert rationale["goal"] == "Answer the support question."
+    assert rationale["safety"]["hidden_reasoning_dropped"] is True
+    assert "$.metadata.agent_rationale.messages" in rationale["safety"]["forbidden_fields"]
 
 
 def test_run_deny_raises() -> None:

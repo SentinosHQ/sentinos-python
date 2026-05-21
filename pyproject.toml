@@ -57,8 +57,14 @@ dev = [
 langchain = [
   "langchain>=0.2",
 ]
+langgraph = [
+  "langgraph>=0.2",
+]
 openai = [
-  "openai>=1.40,<2",
+  "openai>=2.26,<3",
+]
+agents = [
+  "openai-agents>=0.13,<1",
 ]
 anthropic = [
   "anthropic>=0.34,<1",
@@ -71,7 +77,7 @@ grpc = [
   "protobuf>=4.25,<6",
 ]
 providers = [
-  "openai>=1.40,<2",
+  "openai>=2.26,<3",
   "anthropic>=0.34,<1",
   "boto3>=1.40,<2",
 ]

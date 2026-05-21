@@ -17,6 +17,7 @@ from .llm import (
     LLMPolicyEscalationError,
     LLMPolicyExecutionError,
     LLMPolicyResult,
+    build_agent_rationale,
     guard_anthropic_messages,
     guard_openai_chat_completion,
 )
@@ -31,6 +32,12 @@ from .openresponses import (
     guard_openresponses_create,
     iter_openresponses_sse_lines,
     parse_openresponses_sse_event,
+)
+from .otel_destinations import (
+    HONEYCOMB_OTLP_ENDPOINTS,
+    HoneycombRegion,
+    build_datadog_metrics_otel_export_config,
+    build_honeycomb_otel_export_config,
 )
 from .providers import (
     AnthropicMessagesAdapter,
@@ -59,6 +66,7 @@ __all__ = [
     "LLMPolicyEscalationError",
     "LLMPolicyExecutionError",
     "LLMPolicyResult",
+    "build_agent_rationale",
     "BedrockConverseAdapter",
     "AsyncBedrockConverseAdapter",
     "BedrockConverseStreamResult",
@@ -94,8 +102,12 @@ __all__ = [
     "guard_anthropic_messages",
     "guard_openai_chat_completion",
     "guard_openresponses_create",
+    "HONEYCOMB_OTLP_ENDPOINTS",
+    "HoneycombRegion",
     "parse_openresponses_sse_event",
     "iter_openresponses_sse_lines",
     "make_guarded_tool",
     "make_guarded_tool_async",
+    "build_honeycomb_otel_export_config",
+    "build_datadog_metrics_otel_export_config",
 ]

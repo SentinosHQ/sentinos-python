@@ -83,6 +83,7 @@ class OpenAIChatCompletionsAdapter(Generic[T]):
         model: str,
         messages: list[dict[str, Any]],
         metadata: dict[str, Any] | None = None,
+        rationale: dict[str, Any] | None = None,
         tenant_id: str | None = None,
         **kwargs: Any,
     ) -> LLMPolicyResult[T]:
@@ -95,6 +96,7 @@ class OpenAIChatCompletionsAdapter(Generic[T]):
             request=request_payload,
             model=model,
             metadata=metadata,
+            rationale=rationale,
             tenant_id=tenant_id,
             invoke=lambda: self.create_fn(model=model, messages=messages, **kwargs),
         )
@@ -127,6 +129,7 @@ class AsyncOpenAIChatCompletionsAdapter(Generic[T]):
         model: str,
         messages: list[dict[str, Any]],
         metadata: dict[str, Any] | None = None,
+        rationale: dict[str, Any] | None = None,
         tenant_id: str | None = None,
         **kwargs: Any,
     ) -> LLMPolicyResult[T]:
@@ -139,6 +142,7 @@ class AsyncOpenAIChatCompletionsAdapter(Generic[T]):
             request=request_payload,
             model=model,
             metadata=metadata,
+            rationale=rationale,
             tenant_id=tenant_id,
             invoke=lambda: self.create_fn(model=model, messages=messages, **kwargs),
         )
@@ -171,6 +175,7 @@ class OpenAIResponsesAdapter(Generic[T]):
         model: str,
         input: Any,
         metadata: dict[str, Any] | None = None,
+        rationale: dict[str, Any] | None = None,
         tenant_id: str | None = None,
         **kwargs: Any,
     ) -> LLMPolicyResult[T]:
@@ -183,6 +188,7 @@ class OpenAIResponsesAdapter(Generic[T]):
             request=request_payload,
             model=model,
             metadata=metadata,
+            rationale=rationale,
             tenant_id=tenant_id,
             invoke=lambda: self.create_fn(model=model, input=input, **kwargs),
         )
@@ -215,6 +221,7 @@ class AsyncOpenAIResponsesAdapter(Generic[T]):
         model: str,
         input: Any,
         metadata: dict[str, Any] | None = None,
+        rationale: dict[str, Any] | None = None,
         tenant_id: str | None = None,
         **kwargs: Any,
     ) -> LLMPolicyResult[T]:
@@ -227,6 +234,7 @@ class AsyncOpenAIResponsesAdapter(Generic[T]):
             request=request_payload,
             model=model,
             metadata=metadata,
+            rationale=rationale,
             tenant_id=tenant_id,
             invoke=lambda: self.create_fn(model=model, input=input, **kwargs),
         )
@@ -252,6 +260,7 @@ class AnthropicMessagesAdapter(Generic[T]):
         model: str,
         messages: list[dict[str, Any]],
         metadata: dict[str, Any] | None = None,
+        rationale: dict[str, Any] | None = None,
         tenant_id: str | None = None,
         **kwargs: Any,
     ) -> LLMPolicyResult[T]:
@@ -261,6 +270,7 @@ class AnthropicMessagesAdapter(Generic[T]):
             model=model,
             messages=messages,
             metadata=metadata,
+            rationale=rationale,
             tenant_id=tenant_id,
             **kwargs,
         )
@@ -286,6 +296,7 @@ class AsyncAnthropicMessagesAdapter(Generic[T]):
         model: str,
         messages: list[dict[str, Any]],
         metadata: dict[str, Any] | None = None,
+        rationale: dict[str, Any] | None = None,
         tenant_id: str | None = None,
         **kwargs: Any,
     ) -> LLMPolicyResult[T]:
@@ -298,6 +309,7 @@ class AsyncAnthropicMessagesAdapter(Generic[T]):
             request=request_payload,
             model=model,
             metadata=metadata,
+            rationale=rationale,
             tenant_id=tenant_id,
             invoke=lambda: self.create_fn(model=model, messages=messages, **kwargs),
         )
@@ -557,6 +569,8 @@ def make_guarded_tool(
     tool_name: str,
     execute: Callable[..., T],
     provider: str = "tool-runtime",
+    metadata: dict[str, Any] | Callable[..., dict[str, Any]] | None = None,
+    rationale: dict[str, Any] | Callable[..., dict[str, Any]] | None = None,
 ) -> Callable[..., dict[str, Any]]:
     """
     Wrap a tool callback so Sentinos policy is evaluated before execution.
@@ -568,10 +582,14 @@ def make_guarded_tool(
     """
 
     def wrapped(**tool_args: Any) -> dict[str, Any]:
+        call_metadata = metadata(**tool_args) if callable(metadata) else metadata
+        call_rationale = rationale(**tool_args) if callable(rationale) else rationale
         trace = guard.authorize(
             provider=provider,
             operation=tool_name,
             request={"tool": tool_name, "args": tool_args},
+            metadata=call_metadata,
+            rationale=call_rationale,
             tool_name=f"tool.{tool_name}",
         )
         decision = str(trace.decision).upper()
@@ -598,16 +616,22 @@ def make_guarded_tool_async(
     tool_name: str,
     execute: Callable[..., Awaitable[T]],
     provider: str = "tool-runtime",
+    metadata: dict[str, Any] | Callable[..., dict[str, Any]] | None = None,
+    rationale: dict[str, Any] | Callable[..., dict[str, Any]] | None = None,
 ) -> Callable[..., Awaitable[dict[str, Any]]]:
     """
     Async variant of make_guarded_tool.
     """
 
     async def wrapped(**tool_args: Any) -> dict[str, Any]:
+        call_metadata = metadata(**tool_args) if callable(metadata) else metadata
+        call_rationale = rationale(**tool_args) if callable(rationale) else rationale
         trace = await guard.authorize_async(
             provider=provider,
             operation=tool_name,
             request={"tool": tool_name, "args": tool_args},
+            metadata=call_metadata,
+            rationale=call_rationale,
             tool_name=f"tool.{tool_name}",
         )
         decision = str(trace.decision).upper()

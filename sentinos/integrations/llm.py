@@ -3,12 +3,30 @@ from __future__ import annotations
 from collections.abc import AsyncIterator, Awaitable, Callable, Iterator
 from contextlib import asynccontextmanager, contextmanager
 from dataclasses import dataclass
+from datetime import datetime
 from typing import Any, Generic, TypeVar
 
 from ..kernel import KernelClient
 from ..models.decision_trace import DecisionTrace
 
 T = TypeVar("T")
+
+_FORBIDDEN_RATIONALE_KEYS = {
+    "chain_of_thought",
+    "hidden_reasoning",
+    "raw_prompt",
+    "raw_prompts",
+    "prompt",
+    "prompts",
+    "messages",
+    "raw_messages",
+    "tool_args",
+    "raw_tool_args",
+    "tool_output",
+    "raw_tool_output",
+    "tool_outputs",
+    "raw_tool_outputs",
+}
 
 
 class LLMPolicyExecutionError(RuntimeError):
@@ -60,6 +78,92 @@ def _summarize_response(response: Any) -> dict[str, Any]:
     return {"response_type": type(response).__name__}
 
 
+def _sanitize_rationale(rationale: dict[str, Any] | None) -> tuple[dict[str, Any], list[str], bool]:
+    if not rationale:
+        return {}, [], False
+    sanitized: dict[str, Any] = {}
+    forbidden: list[str] = []
+    hidden_reasoning_dropped = False
+    for key, value in rationale.items():
+        if key in _FORBIDDEN_RATIONALE_KEYS:
+            forbidden.append(f"$.metadata.agent_rationale.{key}")
+            if key in {"chain_of_thought", "hidden_reasoning"}:
+                hidden_reasoning_dropped = True
+            continue
+        sanitized[key] = value
+    return sanitized, forbidden, hidden_reasoning_dropped
+
+
+def _metadata_rationale(metadata: dict[str, Any] | None) -> dict[str, Any] | None:
+    candidate = metadata.get("agent_rationale") if metadata else None
+    if isinstance(candidate, dict):
+        return candidate
+    return None
+
+
+def _merge_rationale_inputs(
+    metadata: dict[str, Any] | None,
+    rationale: dict[str, Any] | None,
+) -> dict[str, Any] | None:
+    from_metadata = _metadata_rationale(metadata)
+    if from_metadata is None:
+        return rationale
+    return {**from_metadata, **(rationale or {})}
+
+
+def build_agent_rationale(
+    *,
+    provider: str,
+    operation: str,
+    model: str | None = None,
+    tool: str | None = None,
+    integration: str = "llm_guard",
+    rationale: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    structured, forbidden, hidden_reasoning_dropped = _sanitize_rationale(rationale)
+    has_structured = any(key not in {"workflow", "autonomy"} for key in structured)
+    sources = [{"kind": "sdk", "field_paths": ["provider", "operation", "model", "tool_name"]}]
+    if has_structured:
+        sources.append({"kind": "workflow", "field_paths": ["metadata.agent_rationale"]})
+
+    safety: dict[str, Any] = {}
+    if hidden_reasoning_dropped:
+        safety["hidden_reasoning_dropped"] = True
+    if forbidden:
+        safety["forbidden_fields"] = forbidden
+
+    return {
+        "schema_version": "agent-rationale.v1",
+        "captured_at": datetime.utcnow().isoformat(timespec="milliseconds") + "Z",
+        "capture_phase": "pre_execution",
+        "capture_mode": "mixed" if has_structured else "sdk_derived",
+        "sources": sources,
+        "summary": structured.get("summary") or f"Authorize {provider}.{operation} before execution.",
+        "goal": structured.get("goal"),
+        "decision_basis": structured.get("decision_basis")
+        or [
+            f"Provider: {provider}",
+            f"Operation: {operation}",
+            *([f"Model: {model}"] if model else []),
+            *([f"Tool: {tool}"] if tool else []),
+        ],
+        "expected_outcome": structured.get("expected_outcome"),
+        "alternatives_considered": structured.get("alternatives_considered"),
+        "confidence": structured.get("confidence"),
+        "runtime": {
+            "integration": integration,
+            "provider": provider,
+            "model": model,
+            "operation": operation,
+            "tool": tool,
+            "workflow": structured.get("workflow"),
+            "autonomy": structured.get("autonomy"),
+        },
+        "risk_context": structured.get("risk_context"),
+        "safety": safety,
+    }
+
+
 @dataclass
 class LLMGuard:
     """
@@ -82,6 +186,9 @@ class LLMGuard:
         provider: str,
         operation: str,
         metadata: dict[str, Any] | None,
+        model: str | None = None,
+        tool: str | None = None,
+        rationale: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         merged: dict[str, Any] = {
             "skip_connector": True,
@@ -91,6 +198,14 @@ class LLMGuard:
         }
         if metadata:
             merged.update(metadata)
+        structured_rationale = _merge_rationale_inputs(metadata, rationale)
+        merged["agent_rationale"] = build_agent_rationale(
+            provider=provider,
+            operation=operation,
+            model=model,
+            tool=tool,
+            rationale=structured_rationale,
+        )
         return merged
 
     def authorize(
@@ -103,6 +218,7 @@ class LLMGuard:
         metadata: dict[str, Any] | None = None,
         tenant_id: str | None = None,
         tool_name: str | None = None,
+        rationale: dict[str, Any] | None = None,
     ) -> DecisionTrace:
         tool = tool_name or _tool_name(provider, operation)
         intent_args: dict[str, Any] = {
@@ -116,7 +232,14 @@ class LLMGuard:
             agent_id=self.agent_id,
             session_id=self.session_id,
             intent={"type": "llm_call", "tool": tool, "args": intent_args},
-            metadata=self._merged_metadata(provider=provider, operation=operation, metadata=metadata),
+            metadata=self._merged_metadata(
+                provider=provider,
+                operation=operation,
+                metadata=metadata,
+                model=model,
+                tool=tool,
+                rationale=rationale,
+            ),
             tenant_id=(tenant_id or self.tenant_id),
         )
 
@@ -130,6 +253,7 @@ class LLMGuard:
         metadata: dict[str, Any] | None = None,
         tenant_id: str | None = None,
         tool_name: str | None = None,
+        rationale: dict[str, Any] | None = None,
     ) -> DecisionTrace:
         tool = tool_name or _tool_name(provider, operation)
         intent_args: dict[str, Any] = {
@@ -143,7 +267,14 @@ class LLMGuard:
             agent_id=self.agent_id,
             session_id=self.session_id,
             intent={"type": "llm_call", "tool": tool, "args": intent_args},
-            metadata=self._merged_metadata(provider=provider, operation=operation, metadata=metadata),
+            metadata=self._merged_metadata(
+                provider=provider,
+                operation=operation,
+                metadata=metadata,
+                model=model,
+                tool=tool,
+                rationale=rationale,
+            ),
             tenant_id=(tenant_id or self.tenant_id),
         )
 
@@ -158,6 +289,7 @@ class LLMGuard:
         metadata: dict[str, Any] | None = None,
         tenant_id: str | None = None,
         tool_name: str | None = None,
+        rationale: dict[str, Any] | None = None,
         response_summarizer: Callable[[T], dict[str, Any]] | None = None,
     ) -> LLMPolicyResult[T]:
         trace = self.authorize(
@@ -168,6 +300,7 @@ class LLMGuard:
             metadata=metadata,
             tenant_id=tenant_id,
             tool_name=tool_name,
+            rationale=rationale,
         )
         decision = _decision_text(trace)
         if decision == "DENY":
@@ -237,6 +370,7 @@ class LLMGuard:
         metadata: dict[str, Any] | None = None,
         tenant_id: str | None = None,
         tool_name: str | None = None,
+        rationale: dict[str, Any] | None = None,
     ) -> Iterator[DecisionTrace]:
         trace = self.authorize(
             provider=provider,
@@ -246,6 +380,7 @@ class LLMGuard:
             metadata=metadata,
             tenant_id=tenant_id,
             tool_name=tool_name,
+            rationale=rationale,
         )
         decision = _decision_text(trace)
         if decision == "DENY":
@@ -271,6 +406,7 @@ class LLMGuard:
         metadata: dict[str, Any] | None = None,
         tenant_id: str | None = None,
         tool_name: str | None = None,
+        rationale: dict[str, Any] | None = None,
         response_summarizer: Callable[[T], dict[str, Any]] | None = None,
     ) -> LLMPolicyResult[T]:
         trace = await self.authorize_async(
@@ -281,6 +417,7 @@ class LLMGuard:
             metadata=metadata,
             tenant_id=tenant_id,
             tool_name=tool_name,
+            rationale=rationale,
         )
         decision = _decision_text(trace)
         if decision == "DENY":
@@ -350,6 +487,7 @@ class LLMGuard:
         metadata: dict[str, Any] | None = None,
         tenant_id: str | None = None,
         tool_name: str | None = None,
+        rationale: dict[str, Any] | None = None,
     ) -> AsyncIterator[DecisionTrace]:
         trace = await self.authorize_async(
             provider=provider,
@@ -359,6 +497,7 @@ class LLMGuard:
             metadata=metadata,
             tenant_id=tenant_id,
             tool_name=tool_name,
+            rationale=rationale,
         )
         decision = _decision_text(trace)
         if decision == "DENY":
@@ -381,6 +520,7 @@ def guard_openai_chat_completion(
     model: str,
     messages: list[dict[str, Any]],
     metadata: dict[str, Any] | None = None,
+    rationale: dict[str, Any] | None = None,
     tenant_id: str | None = None,
     **kwargs: Any,
 ) -> LLMPolicyResult[T]:
@@ -393,6 +533,7 @@ def guard_openai_chat_completion(
         request=request_payload,
         model=model,
         metadata=metadata,
+        rationale=rationale,
         tenant_id=tenant_id,
         invoke=lambda: create(model=model, messages=messages, **kwargs),
     )
@@ -405,6 +546,7 @@ def guard_anthropic_messages(
     model: str,
     messages: list[dict[str, Any]],
     metadata: dict[str, Any] | None = None,
+    rationale: dict[str, Any] | None = None,
     tenant_id: str | None = None,
     **kwargs: Any,
 ) -> LLMPolicyResult[T]:
@@ -417,6 +559,7 @@ def guard_anthropic_messages(
         request=request_payload,
         model=model,
         metadata=metadata,
+        rationale=rationale,
         tenant_id=tenant_id,
         invoke=lambda: create(model=model, messages=messages, **kwargs),
     )

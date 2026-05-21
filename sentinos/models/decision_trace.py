@@ -81,6 +81,81 @@ class DecisionTraceSignatures(BaseModel):
     sig: str | None = None  # base64
 
 
+class DecisionTracePaymentContext(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
+    protocol: str | None = None
+    provider: str | None = None
+    rail: str | None = None
+    merchant: str | None = None
+    resource: str | None = None
+    amount: str | float | int | None = None
+    maxAmountRequired: str | float | int | None = None
+    asset: str | None = None
+    currency: str | None = None
+    network: str | None = None
+    wallet_reference: str | None = None
+    settlement_reference: str | None = None
+    payment_id: str | None = None
+    refund_id: str | None = None
+    charge_id: str | None = None
+    budget_window: dict[str, Any] | None = None
+
+
+AgentRationaleCaptureMode = Literal[
+    "runtime_derived",
+    "sdk_derived",
+    "model_supplied",
+    "workflow_supplied",
+    "mixed",
+]
+AgentRationaleSourceKind = Literal["sdk", "runtime", "model", "workflow"]
+
+
+class AgentRationaleSource(BaseModel):
+    kind: AgentRationaleSourceKind
+    field_paths: list[str] | None = None
+
+
+class AgentRationaleRuntime(BaseModel):
+    integration: str | None = None
+    provider: str | None = None
+    model: str | None = None
+    operation: str | None = None
+    tool: str | None = None
+    workflow: str | None = None
+    autonomy: str | None = None
+
+
+class AgentRationaleRiskContext(BaseModel):
+    data_class: str | None = None
+    side_effects: list[str] | None = None
+    external_domains: list[str] | None = None
+    requires_approval: bool | None = None
+
+
+class AgentRationaleSafety(BaseModel):
+    hidden_reasoning_dropped: bool | None = None
+    forbidden_fields: list[str] | None = None
+
+
+class AgentRationale(BaseModel):
+    schema_version: Literal["agent-rationale.v1"]
+    captured_at: datetime
+    capture_phase: Literal["pre_execution"]
+    capture_mode: AgentRationaleCaptureMode
+    sources: list[AgentRationaleSource]
+    summary: str | None = None
+    goal: str | None = None
+    decision_basis: list[str] | None = None
+    expected_outcome: str | None = None
+    alternatives_considered: list[str] | None = None
+    confidence: float | None = None
+    runtime: AgentRationaleRuntime | None = None
+    risk_context: AgentRationaleRiskContext | None = None
+    safety: AgentRationaleSafety | None = None
+
+
 class DecisionTrace(BaseModel):
     """
     Canonical Decision Trace (decision-trace.v1).
@@ -111,6 +186,8 @@ class DecisionTrace(BaseModel):
     outcome: dict[str, Any] | None = None
     provenance: list[Any] | None = None
     signatures: DecisionTraceSignatures | None = None
+    agent_rationale: AgentRationale | None = None
+    payment_context: DecisionTracePaymentContext | None = None
     distributed_trace_id: str | None = None
     distributed_span_id: str | None = None
     cost_breakdown: TraceCostBreakdown | None = None
