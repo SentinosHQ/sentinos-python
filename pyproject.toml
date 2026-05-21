@@ -47,7 +47,7 @@ sentinos-sdk-migration-lint = "sentinos.tools.sdk_migration_lint:main"
 
 [project.optional-dependencies]
 dev = [
-  "pytest>=8,<9",
+  "pytest>=8,<10",
   "ruff>=0.6",
   "mypy>=1.10",
   "tox>=4.20,<5",
