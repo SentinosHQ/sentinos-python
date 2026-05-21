@@ -74,7 +74,7 @@ bedrock = [
 ]
 grpc = [
   "grpcio>=1.66,<2",
-  "protobuf>=4.25,<6",
+  "protobuf>=4.25,<8",
 ]
 providers = [
   "openai>=2.26,<3",
